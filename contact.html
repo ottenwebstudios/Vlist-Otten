@@ -52,6 +52,7 @@
       height: 200px;
       object-fit: cover;
       filter: brightness(.65) saturate(.6);
+      display: block;
     }
 
     .form-group { margin-bottom: 22px; }
@@ -67,7 +68,7 @@
     .form-group textarea,
     .form-group select {
       width: 100%;
-      background: rgba(0,0,0,.2);
+      background: rgba(0,0,0,.25);
       border: 1px solid rgba(203,190,174,.18);
       color: var(--text-main);
       padding: 14px 16px;
@@ -84,9 +85,18 @@
     .form-group textarea { resize: vertical; min-height: 130px; }
     .form-group select option { background: var(--primary-dk); }
     .form-group input::placeholder,
-    .form-group textarea::placeholder { color: rgba(240,235,228,.3); }
+    .form-group textarea::placeholder { color: rgba(240,235,228,.28); }
 
-    #formMsg { margin-top: 16px; font-size: .82rem; color: var(--gold-muted); display: none; }
+    .form-success {
+      display: none;
+      background: rgba(203,190,174,.1);
+      border: 1px solid rgba(203,190,174,.25);
+      padding: 20px 24px;
+      margin-top: 20px;
+      font-size: .88rem;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
 
     @media (max-width: 768px) {
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -122,7 +132,8 @@
   </ul>
   <div class="sidebar-footer">
     Vlist – Otten Chauffeursdiensten<br>
-    +31 6 27 31 32 03 &nbsp;/&nbsp; +31 6 15 66 71 65
+    KvK: 99913925 &nbsp;&middot;&nbsp; info@vlistotten.nl<br>
+    +31 6 27 31 32 03 / +31 6 15 66 71 65
   </div>
 </aside>
 
@@ -130,7 +141,7 @@
   <div class="page-header">
     <p class="page-eyebrow" data-t="contact_eyebrow">Neem contact op</p>
     <h1 class="page-title">
-      <span data-t="contact_title">Boeken &</span> <em data-t="contact_title_em">Contact</em>
+      <span data-t="contact_title">Boeken &amp;</span> <em data-t="contact_title_em">Contact</em>
     </h1>
     <div class="page-divider"></div>
   </div>
@@ -141,7 +152,7 @@
       <p data-t="contact_intro">Voor boekingen, offertes of vragen kunt u ons direct bereiken.</p>
 
       <span class="contact-label" data-t="contact_email_lbl">Email</span>
-      <p data-t="contact_email_val">Volgt binnenkort</p>
+      <p><a href="mailto:info@vlistotten.nl">info@vlistotten.nl</a></p>
 
       <span class="contact-label" data-t="contact_tel_lbl">Telefoon</span>
       <p>
@@ -156,26 +167,38 @@
 
       <div class="contact-sep"></div>
       <!-- VERVANG: images/contact.jpg -->
-      <img class="contact-img" src="images/contact.jpg" alt="Vlist Otten interieur"
+      <img class="contact-img" src="images/contact.jpg" alt="Vlist Otten"
            onerror="this.src='https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=600&q=70'" />
     </div>
 
-    <form onsubmit="handleForm(event)">
+    <!--
+      FORMSPREE FORMULIER
+      Vervang YOUR_FORM_ID hieronder met jouw eigen Formspree endpoint.
+      Zie instructies onderaan dit bestand.
+    -->
+    <form id="contactForm" action="https://formspree.io/f/xreyklel" method="POST" onsubmit="handleSubmit(event)">
+      <!-- Stuur bevestiging naar afzender -->
+      <input type="hidden" name="_replyto" value="info@vlistotten.nl" />
+      <!-- Onderwerp van de mail -->
+      <input type="hidden" name="_subject" data-t-subject="true" value="Nieuwe aanvraag – Vlist Otten" />
+      <!-- Redirect na submit (optioneel, wij doen het via JS) -->
+      <input type="hidden" name="_next" value="" />
+
       <div class="form-group">
         <label data-t="f_name">Uw naam</label>
-        <input type="text" name="name" data-t-placeholder="f_name_ph" placeholder="Voor- en achternaam" required />
+        <input type="text" name="name" placeholder="Voor- en achternaam" required data-t-ph="f_name_ph" />
       </div>
       <div class="form-group">
         <label data-t="f_email">E-mailadres</label>
-        <input type="email" name="email" data-t-placeholder="f_email_ph" placeholder="uw@email.nl" required />
+        <input type="email" name="email" placeholder="uw@email.nl" required data-t-ph="f_email_ph" />
       </div>
       <div class="form-group">
         <label data-t="f_tel">Telefoonnummer</label>
-        <input type="tel" name="phone" data-t-placeholder="f_tel_ph" placeholder="+31 6 00 00 00 00" />
+        <input type="tel" name="phone" placeholder="+31 6 00 00 00 00" data-t-ph="f_tel_ph" />
       </div>
       <div class="form-group">
         <label data-t="f_addr">Adres / vertrekpunt</label>
-        <input type="text" name="address" data-t-placeholder="f_addr_ph" placeholder="Straat, huisnummer, woonplaats" />
+        <input type="text" name="address" placeholder="Straat, huisnummer, woonplaats" data-t-ph="f_addr_ph" />
       </div>
       <div class="form-group">
         <label data-t="f_dienst">Type dienst</label>
@@ -192,22 +215,25 @@
       </div>
       <div class="form-group">
         <label data-t="f_msg">Bericht</label>
-        <textarea name="message" data-t-placeholder="f_msg_ph" placeholder="Vermeld uw gewenste datum, bestemming en eventuele dranken of versnaperingen."></textarea>
+        <textarea name="message" placeholder="Vermeld uw gewenste datum, bestemming en eventuele dranken of versnaperingen. Hoe meer detail, hoe beter wij u kunnen helpen." data-t-ph="f_msg_ph"></textarea>
       </div>
       <button type="submit" class="btn btn-primary" style="width:100%" data-t="f_submit">Versturen</button>
-      <p id="formMsg" data-t="f_success"></p>
+
+      <div class="form-success" id="formSuccess" data-t="f_success">
+        Bedankt voor uw bericht! Wij nemen zo snel mogelijk contact op.
+      </div>
     </form>
   </div>
 </main>
 
 <footer class="site-footer">
-  &copy; 2026 Vlist – Otten Chauffeursdiensten &nbsp;|&nbsp;
+  &copy; 2026 Vlist – Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;
   <a href="voorwaarden.html#av" data-t="footer_av">Algemene Voorwaarden</a>
 </footer>
 
 <div class="cookie-bar" id="cookieBar">
   <p class="cookie-text">
-    <span data-t="cookie_text">Wij gebruiken functionele cookies...</span>
+    <span data-t="cookie_text">Wij gebruiken functionele cookies om uw voorkeuren op te slaan. Met uw toestemming plaatsen wij ook analytische cookies. Lees ons</span>
     <a href="voorwaarden.html" data-t="cookie_privacy"> privacybeleid</a>.
   </p>
   <div class="cookie-buttons">
@@ -218,25 +244,47 @@
 
 <script src="shared.js"></script>
 <script>
-  function handleForm(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    const msg = document.getElementById('formMsg');
-    msg.style.display = 'block';
-    msg.textContent = t('f_success');
-    e.target.reset();
+    const form = document.getElementById('contactForm');
+    const btn  = form.querySelector('button[type=submit]');
+    const successBox = document.getElementById('formSuccess');
+
+    btn.textContent = '...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.reset();
+        successBox.style.display = 'block';
+        btn.textContent = t('f_submit') || 'Versturen';
+        btn.disabled = false;
+      } else {
+        btn.textContent = 'Fout – probeer opnieuw';
+        btn.disabled = false;
+      }
+    } catch(err) {
+      btn.textContent = 'Fout – probeer opnieuw';
+      btn.disabled = false;
+    }
   }
 
-  // Extra: translate placeholder via data-t-placeholder
+  // Translate placeholders
   document.addEventListener('DOMContentLoaded', () => {
-    function applyPlaceholders() {
-      document.querySelectorAll('[data-t-placeholder]').forEach(el => {
-        el.placeholder = t(el.getAttribute('data-t-placeholder'));
+    function applyPh() {
+      document.querySelectorAll('[data-t-ph]').forEach(el => {
+        el.placeholder = t(el.getAttribute('data-t-ph'));
       });
     }
-    applyPlaceholders();
-    // Override applyTranslations to also do placeholders
+    applyPh();
     const orig = window.applyTranslations;
-    window.applyTranslations = function() { orig(); applyPlaceholders(); };
+    window.applyTranslations = function() { orig && orig(); applyPh(); };
   });
 </script>
 </body>
