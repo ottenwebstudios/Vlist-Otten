@@ -2,9 +2,9 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --primary:    #5e533f;
-  --primary-dk: #4a4130;
-  --primary-nav:#3d3527;
+  --primary:    #312a1e;
+  --primary-dk: #271f15;
+  --primary-nav:#1e1810;
   --gold:       #cbbeae;
   --gold-dim:   #b9b1a7;
   --gold-muted: #93887b;
@@ -35,7 +35,7 @@ nav#mainNav {
   align-items: center;
   justify-content: space-between;
   padding: 22px 40px;
-  background: var(--primary-nav);
+  background: transparent;
   transition: background .4s;
 }
 nav#mainNav.scrolled {
@@ -111,7 +111,7 @@ nav#mainNav.scrolled {
   top: 0; left: 0;
   width: min(320px, 82vw);
   height: 100%;
-  background: var(--primary-nav);
+  background: transparent;
   border-right: 1px solid rgba(203,190,174,.12);
   z-index: 150;
   transform: translateX(-100%);
@@ -224,7 +224,7 @@ footer.site-footer {
   color: var(--text-muted);
   border-top: 1px solid rgba(203,190,174,.1);
   text-transform: uppercase;
-  background: var(--primary-nav);
+  background: transparent;
   line-height: 2;
 }
 footer.site-footer a {
@@ -240,7 +240,7 @@ footer.site-footer a:hover { color: var(--gold); border-color: var(--gold); }
   position: fixed;
   bottom: 0; left: 0; right: 0;
   z-index: 999;
-  background: var(--primary-nav);
+  background: transparent;
   border-top: 1px solid rgba(203,190,174,.18);
   padding: 20px 48px;
   display: flex;
