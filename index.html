@@ -97,28 +97,32 @@
 
     .home-about-names { display: flex; gap: 1px; flex-shrink: 0; }
     .name-card {
-      width: 180px;
-      padding: 48px 28px;
+      width: 200px;
+      padding: 0;
       background: rgba(0,0,0,.15);
       border-left: 1px solid rgba(203,190,174,.1);
       text-align: center;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      overflow: hidden;
     }
     .name-card-photo {
-      width: 90px; height: 90px;
-      border-radius: 50%;
+      width: 100%;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
-      border: 2px solid rgba(203,190,174,.2);
-      margin-bottom: 16px;
-      filter: saturate(.75) brightness(.9);
+      object-position: center top;
+      display: block;
+      filter: saturate(.82) brightness(.88);
+      margin-bottom: 0;
+      transition: transform 5s ease;
     }
+    .name-card:hover .name-card-photo { transform: scale(1.04); }
+    .name-card-body { padding: 18px 16px 20px; }
     .name-card-name {
       font-family: var(--serif);
       font-size: .95rem;
       color: var(--gold);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
     .name-card-role {
       font-size: .65rem;
@@ -177,7 +181,7 @@
   </ul>
   <div class="sidebar-footer">
     Vlist – Otten Chauffeursdiensten<br>
-    +31 6 27 31 32 03 &nbsp;/&nbsp; +31 6 15 66 71 65
+    +31 6 27 31 32 03 &amp;nbsp;/&amp;nbsp; +31 6 15 66 71 65
   </div>
 </aside>
 
@@ -212,22 +216,26 @@
   <div class="home-about-names">
     <div class="name-card">
       <!-- VERVANG: images/jip.jpg -->
-      <img class="name-card-photo" src="images/jip.jpg" alt="Jip van der Vlist" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&fit=crop'" />
-      <div class="name-card-name">Jip van der Vlist</div>
-      <div class="name-card-role" data-t="home_role">Chauffeur & Co-founder</div>
+      <img class="name-card-photo" src="images/jip.jpg" alt="Jip van der Vlist" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&fit=crop'" />
+      <div class="name-card-body">
+        <div class="name-card-name">Jip van der Vlist</div>
+        <div class="name-card-role" data-t="home_role">Chauffeur &amp; Co-founder</div>
+      </div>
     </div>
     <div class="name-card">
       <!-- VERVANG: images/cas.jpg -->
-      <img class="name-card-photo" src="images/cas.jpg" alt="Cas Otten" onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80&fit=crop'" />
-      <div class="name-card-name">Cas Otten</div>
-      <div class="name-card-role" data-t="home_role">Chauffeur & Co-founder</div>
+      <img class="name-card-photo" src="images/cas.jpg" alt="Cas Otten" onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80&fit=crop'" />
+      <div class="name-card-body">
+        <div class="name-card-name">Cas Otten</div>
+        <div class="name-card-role" data-t="home_role">Chauffeur &amp; Co-founder</div>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer class="site-footer">
-  &copy; 2026 Vlist – Otten Chauffeursdiensten &nbsp;|&nbsp;
+  &copy; 2026 Vlist – Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;amp;copy; 2026 Vlist – Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;
   <a href="voorwaarden.html#av" data-t="footer_av">Algemene Voorwaarden</a>
 </footer>
 
