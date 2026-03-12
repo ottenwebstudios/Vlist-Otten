@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Klantvoorwaarden – Vlist Otten</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { padding-top: 80px; }
+
+    .vw-section { margin-bottom: 52px; max-width: 720px; }
+    .vw-section h2 {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .vw-section ul { list-style: none; }
+    .vw-section ul li {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(203,190,174,.07);
+      font-size: .88rem;
+      color: var(--text-sub);
+      line-height: 1.85;
+    }
+    .vw-section ul li::before { content: '—'; color: var(--gold-muted); margin-right: 10px; }
+    .vw-section p {
+      font-size: .88rem;
+      color: var(--text-sub);
+      line-height: 2;
+      margin-bottom: 18px;
+    }
+    .vw-divider { width: 100%; height: 1px; background: rgba(203,190,174,.08); margin: 52px 0; }
+
+    /* PDF link */
+    .pdf-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      padding: 14px 24px;
+      background: rgba(203,190,174,.08);
+      border: 1px solid rgba(203,190,174,.2);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: .82rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: background .25s, border-color .25s;
+    }
+    .pdf-link:hover { background: rgba(203,190,174,.14); border-color: var(--gold); }
+    .pdf-link svg { flex-shrink: 0; }
+
+    strong.pp-head { color: var(--text-main); display: block; margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <div class="hamburger" id="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+  <a class="nav-logo" href="index.html">Vlist <span>&ndash;</span> Otten</a>
+  <div class="nav-right">
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="nl" onclick="setLang('nl')">NL</button>
+      <span class="sep">/</span>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<div class="sidebar-overlay" id="overlay" onclick="closeSidebar()"></div>
+<aside class="sidebar" id="sidebar">
+  <span class="sidebar-nav-label">Navigatie</span>
+  <ul class="sidebar-links">
+    <li><a href="index.html"       data-t="nav_home"></a></li>
+    <li><a href="about.html"       data-t="nav_about"></a></li>
+    <li><a href="diensten.html"    data-t="nav_diensten"></a></li>
+    <li><a href="tarieven.html"    data-t="nav_tarieven"></a></li>
+    <li><a href="contact.html"     data-t="nav_contact"></a></li>
+    <li><a href="voorwaarden.html" data-t="nav_voorwaarden"></a></li>
+  </ul>
+  <div class="sidebar-footer">
+    Vlist – Otten Chauffeursdiensten<br>
+    +31 6 27 31 32 03 &nbsp;/&nbsp; +31 6 15 66 71 65
+  </div>
+</aside>
+
+<main class="page-inner">
+  <div class="page-header">
+    <p class="page-eyebrow" data-t="vw_eyebrow">Juridisch</p>
+    <h1 class="page-title">
+      <span data-t="vw_title">Klantvoorwaarden &</span> <em data-t="vw_title_em">Privacybeleid</em>
+    </h1>
+    <div class="page-divider"></div>
+  </div>
+
+  <!-- KLANTVOORWAARDEN -->
+  <div class="vw-section" id="av">
+    <h2 data-t="vw_h2_kv">Klantvoorwaarden</h2>
+    <ul>
+      <li data-t="vw_kv1">Om de verzekering van uw auto te dekken, vragen wij bij de aanvang een contract te tekenen.</li>
+      <li data-t="vw_kv2">Ritten kunnen minimaal 24 uur voor vertrek worden geannuleerd. Bij annulering binnen 24 uur worden minimaal 3 uur in rekening gebracht.</li>
+      <li data-t="vw_kv3">Facturen dienen binnen 10 werkdagen te worden voldaan.</li>
+    </ul>
+
+    <!-- PDF LINK — VERVANG "docs/algemene-voorwaarden.pdf" indien anders genaamd -->
+    <a class="pdf-link" href="docs/algemene-voorwaarden.pdf" target="_blank" rel="noopener" data-t="vw_kv_link">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+      </svg>
+      Bekijk onze Algemene Voorwaarden (PDF)
+    </a>
+  </div>
+
+  <div class="vw-divider"></div>
+
+  <!-- PRIVACYBELEID -->
+  <div class="vw-section">
+    <h2 data-t="vw_h2_pp">Privacybeleid</h2>
+
+    <p><strong class="pp-head" data-t="vw_pp1_h">Verantwoordelijke</strong><span data-t="vw_pp1_p">Vlist – Otten Chauffeursdiensten</span></p>
+    <p><strong class="pp-head" data-t="vw_pp2_h">Welke gegevens wij verzamelen</strong><span data-t="vw_pp2_p">Via het contactformulier verzamelen wij uw naam, e-mailadres, telefoonnummer en adres ten behoeve van het afhandelen van uw boeking of vraag. Wij gebruiken geen tracking- of advertentiecookies.</span></p>
+    <p><strong class="pp-head" data-t="vw_pp3_h">Cookies</strong><span data-t="vw_pp3_p">Deze website maakt gebruik van functionele cookies om uw cookievoorkeur op te slaan. Analytische of marketing-cookies worden alleen geplaatst na uw expliciete toestemming.</span></p>
+    <p><strong class="pp-head" data-t="vw_pp4_h">Uw rechten</strong><span data-t="vw_pp4_p">U heeft het recht op inzage, correctie of verwijdering van uw persoonsgegevens. Neem hiervoor contact op via telefoon of e-mail.</span></p>
+    <p><strong class="pp-head" data-t="vw_pp5_h">Versie</strong><span data-t="vw_pp5_p">1.0 — 26-02-2026</span></p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  &copy; 2026 Vlist – Otten Chauffeursdiensten &nbsp;|&nbsp;
+  <a href="docs/algemene-voorwaarden.pdf" target="_blank" rel="noopener" data-t="footer_av">Algemene Voorwaarden</a>
+</footer>
+
+<div class="cookie-bar" id="cookieBar">
+  <p class="cookie-text">
+    <span data-t="cookie_text">Wij gebruiken functionele cookies...</span>
+    <a href="voorwaarden.html" data-t="cookie_privacy"> privacybeleid</a>.
+  </p>
+  <div class="cookie-buttons">
+    <button class="cookie-btn cookie-decline" onclick="declineCookies()" data-t="cookie_decline">Alleen noodzakelijk</button>
+    <button class="cookie-btn cookie-accept" onclick="acceptCookies()" data-t="cookie_accept">Akkoord</button>
+  </div>
+</div>
+
+<script src="shared.js"></script>
+</body>
+</html>
