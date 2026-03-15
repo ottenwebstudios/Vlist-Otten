@@ -3,7 +3,7 @@
 /* ── TRANSLATIONS ── */
 const LANG = {
   nl: {
-    nav: ['Home','Over Ons','Diensten','Tarieven','Boeken & Contact','Klantvoorwaarden & Privacy'],
+    nav: ['Home','Over Ons','Diensten','Tarieven','Boeken & Contact','Voorwaarden'],
     sidebar_sub: 'KvK: 99913925 &nbsp;&middot;&nbsp; info@vlistotten.nl',
 
     // HOME
@@ -70,8 +70,8 @@ const LANG = {
     'f-dienst-opt': '— Selecteer een dienst —',
 
     // VOORWAARDEN
-    'vw-ey': 'Juridisch', 'vw-t': 'Klantvoorwaarden &', 'vw-te': 'Privacybeleid',
-    'vw-h1': 'Stel een vraag of maak een aanvraag',
+    'vw-ey': 'Juridisch', 'vw-t': 'Algemene', 'vw-te': 'Voorwaarden', 'vw-intro': 'Onze algemene voorwaarden zijn beschikbaar als PDF. U kunt deze hieronder bekijken en downloaden.',
+    'vw-h1': 'Klantvoorwaarden',
     'vw-fl1': 'Uw naam', 'vw-fl2': 'E-mailadres', 'vw-fl3': 'Telefoonnummer',
     'vw-fl4': 'Bericht / vraag',
     'vw-fsb': 'Versturen',
@@ -89,7 +89,7 @@ const LANG = {
     'ft-av': 'Algemene Voorwaarden',
   },
   en: {
-    nav: ['Home','About Us','Services','Rates','Book & Contact','Terms & Privacy'],
+    nav: ['Home','About Us','Services','Rates','Book & Contact','Voorwaarden / Privacy'],
     sidebar_sub: 'KvK: 99913925 &nbsp;&middot;&nbsp; info@vlistotten.nl',
 
     'h-eyebrow': 'Personal Chauffeur Services',
@@ -150,8 +150,8 @@ const LANG = {
     'f-sub': 'Send',
     'f-dienst-opt': '— Select a service —',
 
-    'vw-ey': 'Legal', 'vw-t': 'Terms &', 'vw-te': 'Privacy Policy',
-    'vw-h1': 'Ask a question or make a request',
+    'vw-ey': 'Legal', 'vw-t': 'General', 'vw-te': 'Terms & Conditions', 'vw-intro': 'Our general terms and conditions are available as a PDF. You can view and download them below.',
+    'vw-h1': 'Terms & Conditions',
     'vw-fl1': 'Your name', 'vw-fl2': 'Email address', 'vw-fl3': 'Phone number',
     'vw-fl4': 'Message / question',
     'vw-fsb': 'Send',
