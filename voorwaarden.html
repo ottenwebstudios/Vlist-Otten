@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Klantvoorwaarden – Vlist Otten</title>
+  <title>Voorwaarden – Vlist Otten</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
     body { padding-top: 80px; }
-    .vw-section { margin-bottom:52px; max-width:720px; }
-    .vw-section h2 { font-family:var(--serif); font-size:1.4rem; font-weight:400; color:var(--gold); margin-bottom:24px; }
-    .vw-section p { font-size:.88rem; color:var(--text-sub); line-height:2; margin-bottom:18px; }
-    .vw-divider { width:100%; height:1px; background:rgba(203,190,174,.08); margin:52px 0; }
-    .pp-head { color:var(--text); display:block; margin-bottom:4px; }
+    .vw-section { margin-bottom: 52px; max-width: 720px; }
+    .vw-section h2 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--gold); margin-bottom: 24px; }
+    .vw-section p { font-size: .88rem; color: var(--text-sub); line-height: 2; margin-bottom: 18px; }
+    .vw-divider { width: 100%; height: 1px; background: rgba(203,190,174,.08); margin: 52px 0; }
+    .pp-head { color: var(--text); display: block; margin-bottom: 4px; }
     .pdf-link {
-      display:inline-flex; align-items:center; gap:10px; margin-top:24px;
-      padding:14px 24px; background:rgba(203,190,174,.07); border:1px solid rgba(203,190,174,.2);
-      color:var(--gold); text-decoration:none; font-size:.82rem; letter-spacing:.1em; text-transform:uppercase;
-      transition:background .25s, border-color .25s;
+      display: inline-flex; align-items: center; gap: 10px; margin-top: 8px;
+      padding: 14px 24px; background: rgba(203,190,174,.07); border: 1px solid rgba(203,190,174,.2);
+      color: var(--gold); text-decoration: none; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase;
+      transition: background .25s, border-color .25s;
     }
-    .pdf-link:hover { background:rgba(203,190,174,.13); border-color:var(--gold); }
+    .pdf-link:hover { background: rgba(203,190,174,.13); border-color: var(--gold); }
   </style>
 </head>
 <body>
@@ -46,49 +46,32 @@
     <li><a href="diensten.html">Diensten</a></li>
     <li><a href="tarieven.html">Tarieven</a></li>
     <li><a href="contact.html">Boeken &amp; Contact</a></li>
-    <li><a href="voorwaarden.html">Klantvoorwaarden &amp; Privacy</a></li>
+    <li><a href="voorwaarden.html">Voorwaarden</a></li>
   </ul>
-  <div class="sidebar-footer">Vlist &ndash; Otten Chauffeursdiensten<br><span class="sidebar-sub"></span><br>+31 6 27 31 32 03 / +31 6 15 66 71 65</div>
+  <div class="sidebar-footer">
+    Vlist &ndash; Otten Chauffeursdiensten<br>
+    <span class="sidebar-sub"></span><br>
+    +31 6 27 31 32 03 / +31 6 15 66 71 65
+  </div>
 </aside>
 
 <main class="page-inner">
   <div class="page-header">
     <p class="page-eyebrow" data-t="vw-ey">Juridisch</p>
-    <h1 class="page-title"><span data-t="vw-t">Klantvoorwaarden &amp;</span> <em data-t="vw-te">Privacybeleid</em></h1>
+    <h1 class="page-title"><span data-t="vw-t">Algemene</span> <em data-t="vw-te">Voorwaarden</em></h1>
     <div class="page-divider"></div>
   </div>
 
-  <!-- CONTACT FORM (geen klantvoorwaarden-lijst) -->
+  <!-- PDF LINK -->
   <div class="vw-section" id="av">
-    <h2 data-t="vw-h1">Stel een vraag of maak een aanvraag</h2>
-    <form action="https://formspree.io/f/mzdjavpj" method="POST" onsubmit="handleForm(event)" style="max-width:620px;">
-      <input type="hidden" name="_subject" value="Vraag – Vlist Otten" />
-      <div class="form-group">
-        <label data-t="vw-fl1">Uw naam</label>
-        <input type="text" name="name" placeholder="Voor- en achternaam" required />
-      </div>
-      <div class="form-group">
-        <label data-t="vw-fl2">E-mailadres</label>
-        <input type="email" name="email" placeholder="uw@email.nl" required />
-      </div>
-      <div class="form-group">
-        <label data-t="vw-fl3">Telefoonnummer</label>
-        <input type="tel" name="phone" placeholder="+31 6 00 00 00 00" />
-      </div>
-      <div class="form-group">
-        <label data-t="vw-fl4">Bericht / vraag</label>
-        <textarea name="message" placeholder="Uw vraag of bericht..." style="min-height:100px;"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary" data-t="vw-fsb">Versturen</button>
-      <div class="form-success" data-t="f-ok"></div>
-    </form>
-
+    <h2 data-t="vw-h1">Klantvoorwaarden</h2>
+    <p data-t="vw-intro">Onze algemene voorwaarden zijn beschikbaar als PDF. U kunt deze hieronder bekijken en downloaden.</p>
     <a class="pdf-link" href="docs/algemene-voorwaarden.pdf" target="_blank" rel="noopener">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
         <polyline points="14 2 14 8 20 8"/>
       </svg>
-      <span data-t="vw-pdf-txt">Bekijk onze Algemene Voorwaarden (PDF)</span>
+      <span data-t="vw-pdf-txt">Bekijk Algemene Voorwaarden (PDF)</span>
     </a>
   </div>
 
