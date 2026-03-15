@@ -10,58 +10,21 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     body { padding-top: 80px; }
-
-    .diensten-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(0,0,0,.2);
-      border: 1px solid rgba(203,190,174,.08);
-      margin-bottom: 48px;
-    }
-    .dienst-card {
-      background: var(--primary-dk);
-      padding: 40px 32px;
-      transition: background .3s;
-    }
-    .dienst-card:hover { background: rgba(0,0,0,.15); }
-    .dienst-card.binnenkort { opacity: .65; }
-    .dienst-badge {
-      display: inline-block;
-      font-size: .58rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--gold-muted);
-      border: 1px solid rgba(203,190,174,.25);
-      padding: 3px 9px;
-      margin-bottom: 12px;
-    }
-    .dienst-card-title {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-    .dienst-card p {
-      font-size: .86rem;
-      color: var(--text-sub);
-      line-height: 1.85;
-    }
-
-    @media (max-width: 900px) {
-      .diensten-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 520px) {
-      .diensten-grid { grid-template-columns: 1fr; }
-    }
+    .diensten-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(0,0,0,.25); border:1px solid rgba(203,190,174,.08); margin-bottom:48px; }
+    .dienst-card { background:var(--bg-dk); padding:40px 32px; transition:background .3s; }
+    .dienst-card:hover { background:rgba(0,0,0,.15); }
+    .dienst-card.soon { opacity:.65; }
+    .dienst-badge { display:inline-block; font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-muted); border:1px solid rgba(203,190,174,.25); padding:3px 9px; margin-bottom:12px; }
+    .dienst-title { font-family:var(--serif); font-size:1.2rem; color:var(--gold); margin-bottom:14px; }
+    .dienst-card p { font-size:.86rem; color:var(--text-sub); line-height:1.85; }
+    @media (max-width:900px) { .diensten-grid { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:520px) { .diensten-grid { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
 
 <nav id="mainNav">
-  <div class="hamburger" id="hamburger" onclick="toggleSidebar()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleSidebar()"><span></span><span></span><span></span></div>
   <a class="nav-logo" href="index.html">Vlist <span>&ndash;</span> Otten</a>
   <div class="nav-right">
     <div class="lang-switch">
@@ -71,80 +34,49 @@
     </div>
   </div>
 </nav>
-
 <div class="sidebar-overlay" id="overlay" onclick="closeSidebar()"></div>
 <aside class="sidebar" id="sidebar">
-  <span class="sidebar-nav-label">Navigatie</span>
+  <span class="sidebar-label">Navigatie</span>
   <ul class="sidebar-links">
-    <li><a href="index.html"       data-t="nav_home"></a></li>
-    <li><a href="about.html"       data-t="nav_about"></a></li>
-    <li><a href="diensten.html"    data-t="nav_diensten"></a></li>
-    <li><a href="tarieven.html"    data-t="nav_tarieven"></a></li>
-    <li><a href="contact.html"     data-t="nav_contact"></a></li>
-    <li><a href="voorwaarden.html" data-t="nav_voorwaarden"></a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">Over Ons</a></li>
+    <li><a href="diensten.html">Diensten</a></li>
+    <li><a href="tarieven.html">Tarieven</a></li>
+    <li><a href="contact.html">Boeken &amp; Contact</a></li>
+    <li><a href="voorwaarden.html">Klantvoorwaarden &amp; Privacy</a></li>
   </ul>
-  <div class="sidebar-footer">
-    Vlist – Otten Chauffeursdiensten<br>
-    +31 6 27 31 32 03 &nbsp;/&nbsp; +31 6 15 66 71 65
-  </div>
+  <div class="sidebar-footer">Vlist &ndash; Otten Chauffeursdiensten<br><span class="sidebar-sub"></span><br>+31 6 27 31 32 03 / +31 6 15 66 71 65</div>
 </aside>
 
 <main class="page-inner">
   <div class="page-header">
-    <p class="page-eyebrow" data-t="diensten_eyebrow">Wat wij bieden</p>
-    <h1 class="page-title">
-      <span data-t="diensten_title">Onze</span> <em data-t="diensten_title_em">Diensten</em>
-    </h1>
+    <p class="page-eyebrow" data-t="ds-ey">Wat wij bieden</p>
+    <h1 class="page-title"><span data-t="ds-t">Onze</span> <em data-t="ds-te">Diensten</em></h1>
     <div class="page-divider"></div>
   </div>
-
   <div class="diensten-grid">
-    <div class="dienst-card">
-      <div class="dienst-card-title" data-t="d1_title">Privéchauffeur op maat</div>
-      <p data-t="d1_text">Een vaste chauffeur voor de dag. Ideaal bij meerdere afspraken of als u flexibiliteit nodig heeft.</p>
-    </div>
-    <div class="dienst-card">
-      <div class="dienst-card-title" data-t="d2_title">BOB service</div>
-      <p data-t="d2_text">Diner, gala of concert? Geniet van de avond zonder zorgen. Wij halen u op en brengen u veilig thuis.</p>
-    </div>
-    <div class="dienst-card">
-      <div class="dienst-card-title" data-t="d3_title">Auto naar het buitenland</div>
-      <p data-t="d3_text">Gaat u binnenkort op vakantie? Kies voor het comfort van uw eigen auto op de vakantiebestemming.</p>
-    </div>
-    <div class="dienst-card">
-      <div class="dienst-card-title" data-t="d4_title">Luchthaven transfer</div>
-      <p data-t="d4_text">Stressvrij naar Schiphol, Rotterdam of een ander vliegveld. Wij volgen uw vlucht en zijn er altijd op tijd.</p>
-    </div>
-    <div class="dienst-card">
-      <div class="dienst-card-title" data-t="d5_title">Lange afstand</div>
-      <p data-t="d5_text">Van Amsterdam naar Brussel of Parijs — wij rijden ook internationale ritten voor klanten die comfort verkiezen boven vliegen.</p>
-    </div>
-    <div class="dienst-card binnenkort">
-      <div class="dienst-badge" data-t="d6_badge">Binnenkort</div>
-      <div class="dienst-card-title" data-t="d6_title">Trailerservice</div>
-      <p data-t="d6_text">Wilt u uw auto en boot veilig laten vervoeren, dan kan dat binnenkort. Neem vrijblijvend contact op.</p>
+    <div class="dienst-card"><div class="dienst-title" data-t="d1-title">Privéchauffeur op maat</div><p data-t="d1-text"></p></div>
+    <div class="dienst-card"><div class="dienst-title" data-t="d2-title">BOB service</div><p data-t="d2-text"></p></div>
+    <div class="dienst-card"><div class="dienst-title" data-t="d3-title">Auto naar het buitenland</div><p data-t="d3-text"></p></div>
+    <div class="dienst-card"><div class="dienst-title" data-t="d4-title">Luchthaven transfer</div><p data-t="d4-text"></p></div>
+    <div class="dienst-card"><div class="dienst-title" data-t="d5-title">Lange afstand</div><p data-t="d5-text"></p></div>
+    <div class="dienst-card soon">
+      <div class="dienst-badge" data-t="d6-badge">Binnenkort</div>
+      <div class="dienst-title" data-t="d6-title">Trailerservice</div>
+      <p data-t="d6-text"></p>
     </div>
   </div>
-
-  <a class="btn btn-primary" href="contact.html" data-t="diensten_cta">Vrijblijvend Aanvragen</a>
+  <a class="btn btn-primary" href="contact.html" data-t="ds-cta">Vrijblijvend Aanvragen</a>
 </main>
 
-<footer class="site-footer">
-  &copy; 2026 Vlist – Otten Chauffeursdiensten &nbsp;|&nbsp;
-  <a href="voorwaarden.html#av" data-t="footer_av">Algemene Voorwaarden</a>
-</footer>
-
+<footer class="site-footer">&copy; 2026 Vlist &ndash; Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;<a href="voorwaarden.html#av" data-t="ft-av">Algemene Voorwaarden</a></footer>
 <div class="cookie-bar" id="cookieBar">
-  <p class="cookie-text">
-    <span data-t="cookie_text">Wij gebruiken functionele cookies...</span>
-    <a href="voorwaarden.html" data-t="cookie_privacy"> privacybeleid</a>.
-  </p>
+  <p class="cookie-text"><span data-t="ck-txt"></span><a href="voorwaarden.html" data-t="ck-link"></a>.</p>
   <div class="cookie-buttons">
-    <button class="cookie-btn cookie-decline" onclick="declineCookies()" data-t="cookie_decline">Alleen noodzakelijk</button>
-    <button class="cookie-btn cookie-accept" onclick="acceptCookies()" data-t="cookie_accept">Akkoord</button>
+    <button class="cookie-btn cookie-decline" onclick="declineCookies()" data-t="ck-dec"></button>
+    <button class="cookie-btn cookie-accept" onclick="acceptCookies()" data-t="ck-acc"></button>
   </div>
 </div>
-
 <script src="shared.js"></script>
 </body>
 </html>
