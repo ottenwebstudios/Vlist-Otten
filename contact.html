@@ -10,105 +10,21 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     body { padding-top: 80px; }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 72px;
-      align-items: start;
-    }
-    .contact-info h3 {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-    .contact-info p {
-      font-size: .88rem;
-      color: var(--text-sub);
-      line-height: 2.1;
-    }
-    .contact-info a {
-      color: var(--text-main);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(203,190,174,.2);
-      transition: color .2s, border-color .2s;
-    }
-    .contact-info a:hover { color: var(--gold); border-color: var(--gold); }
-    .contact-label {
-      display: block;
-      font-size: .62rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--gold-muted);
-      margin-top: 24px;
-      margin-bottom: 6px;
-    }
-    .contact-sep { margin-top: 32px; height: 1px; background: rgba(203,190,174,.1); }
-    .contact-img {
-      margin-top: 32px;
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      filter: brightness(.65) saturate(.6);
-      display: block;
-    }
-
-    .form-group { margin-bottom: 22px; }
-    .form-group label {
-      display: block;
-      font-size: .68rem;
-      letter-spacing: .2em;
-      color: var(--gold-muted);
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      background: rgba(0,0,0,.25);
-      border: 1px solid rgba(203,190,174,.18);
-      color: var(--text-main);
-      padding: 14px 16px;
-      font-family: var(--body);
-      font-size: .9rem;
-      outline: none;
-      transition: border-color .25s;
-      appearance: none;
-      border-radius: 0;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus { border-color: var(--gold); }
-    .form-group textarea { resize: vertical; min-height: 130px; }
-    .form-group select option { background: var(--primary-dk); }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder { color: rgba(240,235,228,.28); }
-
-    .form-success {
-      display: none;
-      background: rgba(203,190,174,.1);
-      border: 1px solid rgba(203,190,174,.25);
-      padding: 20px 24px;
-      margin-top: 20px;
-      font-size: .88rem;
-      color: var(--text-sub);
-      line-height: 1.7;
-    }
-
-    @media (max-width: 768px) {
-      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-    }
+    .contact-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:72px; align-items:start; }
+    .contact-info h3 { font-family:var(--serif); font-size:1.2rem; font-weight:400; color:var(--gold); margin-bottom:16px; }
+    .contact-info p { font-size:.88rem; color:var(--text-sub); line-height:2.1; }
+    .contact-info a { color:var(--text); text-decoration:none; border-bottom:1px solid rgba(203,190,174,.2); transition:color .2s; }
+    .contact-info a:hover { color:var(--gold); }
+    .c-label { display:block; font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-muted); margin-top:24px; margin-bottom:6px; }
+    .contact-sep { margin-top:32px; height:1px; background:rgba(203,190,174,.1); }
+    .contact-photo { margin-top:32px; width:100%; height:220px; object-fit:cover; filter:brightness(.62) saturate(.6); display:block; }
+    @media (max-width:768px) { .contact-grid { grid-template-columns:1fr; gap:40px; } }
   </style>
 </head>
 <body>
 
 <nav id="mainNav">
-  <div class="hamburger" id="hamburger" onclick="toggleSidebar()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleSidebar()"><span></span><span></span><span></span></div>
   <a class="nav-logo" href="index.html">Vlist <span>&ndash;</span> Otten</a>
   <div class="nav-right">
     <div class="lang-switch">
@@ -118,164 +34,104 @@
     </div>
   </div>
 </nav>
-
 <div class="sidebar-overlay" id="overlay" onclick="closeSidebar()"></div>
 <aside class="sidebar" id="sidebar">
-  <span class="sidebar-nav-label">Navigatie</span>
+  <span class="sidebar-label">Navigatie</span>
   <ul class="sidebar-links">
-    <li><a href="index.html"       data-t="nav_home"></a></li>
-    <li><a href="about.html"       data-t="nav_about"></a></li>
-    <li><a href="diensten.html"    data-t="nav_diensten"></a></li>
-    <li><a href="tarieven.html"    data-t="nav_tarieven"></a></li>
-    <li><a href="contact.html"     data-t="nav_contact"></a></li>
-    <li><a href="voorwaarden.html" data-t="nav_voorwaarden"></a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">Over Ons</a></li>
+    <li><a href="diensten.html">Diensten</a></li>
+    <li><a href="tarieven.html">Tarieven</a></li>
+    <li><a href="contact.html">Boeken &amp; Contact</a></li>
+    <li><a href="voorwaarden.html">Klantvoorwaarden &amp; Privacy</a></li>
   </ul>
-  <div class="sidebar-footer">
-    Vlist – Otten Chauffeursdiensten<br>
-    KvK: 99913925 &nbsp;&middot;&nbsp; info@vlistotten.nl<br>
-    +31 6 27 31 32 03 / +31 6 15 66 71 65
-  </div>
+  <div class="sidebar-footer">Vlist &ndash; Otten Chauffeursdiensten<br><span class="sidebar-sub"></span><br>+31 6 27 31 32 03 / +31 6 15 66 71 65</div>
 </aside>
 
 <main class="page-inner">
   <div class="page-header">
-    <p class="page-eyebrow" data-t="contact_eyebrow">Neem contact op</p>
-    <h1 class="page-title">
-      <span data-t="contact_title">Boeken &amp;</span> <em data-t="contact_title_em">Contact</em>
-    </h1>
+    <p class="page-eyebrow" data-t="ct-ey">Neem contact op</p>
+    <h1 class="page-title"><span data-t="ct-t">Boeken &amp;</span> <em data-t="ct-te">Contact</em></h1>
     <div class="page-divider"></div>
   </div>
-
   <div class="contact-grid">
     <div class="contact-info">
-      <h3 data-t="contact_h3">Bereikbaarheid</h3>
-      <p data-t="contact_intro">Voor boekingen, offertes of vragen kunt u ons direct bereiken.</p>
-
-      <span class="contact-label" data-t="contact_email_lbl">Email</span>
+      <h3 data-t="ct-h3">Bereikbaarheid</h3>
+      <p data-t="ct-intro"></p>
+      <span class="c-label" data-t="ct-el">Email</span>
       <p><a href="mailto:info@vlistotten.nl">info@vlistotten.nl</a></p>
-
-      <span class="contact-label" data-t="contact_tel_lbl">Telefoon</span>
+      <span class="c-label" data-t="ct-tl">Telefoon</span>
       <p>
         Jip van der Vlist<br/>
         <a href="tel:+31627313203">+31 6 27 31 32 03</a><br/><br/>
         Cas Otten<br/>
         <a href="tel:+31615667165">+31 6 15 66 71 65</a>
       </p>
-
-      <span class="contact-label" data-t="contact_avail_lbl">Beschikbaarheid</span>
-      <p data-t="contact_avail">Maandag t/m zondag<br/>07:00 – 00:00</p>
-
+      <span class="c-label" data-t="ct-al">Beschikbaarheid</span>
+      <p data-t="ct-av"></p>
       <div class="contact-sep"></div>
-      <!-- VERVANG: images/contact.jpg -->
-      <img class="contact-img" src="images/contact.jpg" alt="Vlist Otten"
-           onerror="this.src='https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=600&q=70'" />
+      <!-- images/contact.jpg -->
+      <img class="contact-photo" src="images/contact.jpg" alt="Vlist Otten" />
     </div>
 
-    <!--
-      FORMSPREE FORMULIER
-      Vervang YOUR_FORM_ID hieronder met jouw eigen Formspree endpoint.
-      Zie instructies onderaan dit bestand.
-    -->
-    <form id="contactForm" action="https://formspree.io/f/xreyklel" method="POST" onsubmit="handleSubmit(event)">
-      <!-- Stuur bevestiging naar afzender -->
-      <input type="hidden" name="_replyto" value="info@vlistotten.nl" />
-      <!-- Onderwerp van de mail -->
-      <input type="hidden" name="_subject" data-t-subject="true" value="Nieuwe aanvraag – Vlist Otten" />
-      <!-- Redirect na submit (optioneel, wij doen het via JS) -->
-      <input type="hidden" name="_next" value="" />
+    <!-- Formspree: vervang YOUR_FORM_ID -->
+    <form action="https://formspree.io/f/mzdjavpj" method="POST" onsubmit="handleForm(event)">
+      <input type="hidden" name="_subject" value="Nieuwe aanvraag – Vlist Otten" />
 
       <div class="form-group">
-        <label data-t="f_name">Uw naam</label>
-        <input type="text" name="name" placeholder="Voor- en achternaam" required data-t-ph="f_name_ph" />
+        <label data-t="f-nl">Uw naam</label>
+        <input type="text" name="name" placeholder="Voor- en achternaam" required data-t-ph="f-nl-ph" />
       </div>
       <div class="form-group">
-        <label data-t="f_email">E-mailadres</label>
-        <input type="email" name="email" placeholder="uw@email.nl" required data-t-ph="f_email_ph" />
+        <label data-t="f-el">E-mailadres</label>
+        <input type="email" name="email" placeholder="uw@email.nl" required />
       </div>
       <div class="form-group">
-        <label data-t="f_tel">Telefoonnummer</label>
-        <input type="tel" name="phone" placeholder="+31 6 00 00 00 00" data-t-ph="f_tel_ph" />
+        <label data-t="f-tl">Telefoonnummer</label>
+        <input type="tel" name="phone" placeholder="+31 6 00 00 00 00" />
       </div>
       <div class="form-group">
-        <label data-t="f_addr">Adres / vertrekpunt</label>
-        <input type="text" name="address" placeholder="Straat, huisnummer, woonplaats" data-t-ph="f_addr_ph" />
+        <label data-t="f-al">Adres / vertrekpunt</label>
+        <input type="text" name="address" placeholder="Straat, huisnummer, woonplaats" />
       </div>
       <div class="form-group">
-        <label data-t="f_dienst">Type dienst</label>
+        <label data-t="f-own-car-lbl">Merk &amp; type van uw auto</label>
+        <input type="text" name="auto" placeholder="bijv. Volkswagen Golf, BMW 5-serie..." data-t-ph="f-own-car-ph" />
+      </div>
+      <div class="form-group">
+        <label data-t="f-dl">Type dienst</label>
         <select name="dienst">
-          <option value="" data-t="f_dienst_ph">— Selecteer een dienst —</option>
-          <option data-t="d1_title">Privéchauffeur op maat</option>
-          <option data-t="d2_title">BOB service</option>
-          <option data-t="d3_title">Auto naar het buitenland</option>
-          <option data-t="d4_title">Luchthaven transfer</option>
-          <option data-t="d5_title">Lange afstand</option>
-          <option data-t="d6_title">Trailerservice</option>
+          <option value="">— Selecteer een dienst —</option>
+          <option>Privéchauffeur op maat</option>
+          <option>BOB service</option>
+          <option>Auto naar het buitenland</option>
+          <option>Luchthaven transfer</option>
+          <option>Lange afstand</option>
+          <option>Trailerservice</option>
           <option>Anders</option>
         </select>
       </div>
       <div class="form-group">
-        <label data-t="f_msg">Bericht</label>
-        <textarea name="message" placeholder="Vermeld uw gewenste datum, bestemming en eventuele dranken of versnaperingen. Hoe meer detail, hoe beter wij u kunnen helpen." data-t-ph="f_msg_ph"></textarea>
+        <label data-t="f-ml">Bericht</label>
+        <textarea name="message" placeholder="Vermeld uw gewenste datum, bestemming en eventuele dranken of versnaperingen. Hoe meer detail, hoe beter wij u kunnen helpen."></textarea>
       </div>
-      <button type="submit" class="btn btn-primary" style="width:100%" data-t="f_submit">Versturen</button>
-
-      <div class="form-success" id="formSuccess" data-t="f_success">
-        Bedankt voor uw bericht! Wij nemen zo snel mogelijk contact op.
-      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%" data-t="f-sub">Versturen</button>
+      <div class="form-success" data-t="f-ok"></div>
     </form>
   </div>
 </main>
 
-<footer class="site-footer">
-  &copy; 2026 Vlist – Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;
-  <a href="voorwaarden.html#av" data-t="footer_av">Algemene Voorwaarden</a>
-</footer>
-
+<footer class="site-footer">&copy; 2026 Vlist &ndash; Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;<a href="voorwaarden.html#av" data-t="ft-av">Algemene Voorwaarden</a></footer>
 <div class="cookie-bar" id="cookieBar">
-  <p class="cookie-text">
-    <span data-t="cookie_text">Wij gebruiken functionele cookies om uw voorkeuren op te slaan. Met uw toestemming plaatsen wij ook analytische cookies. Lees ons</span>
-    <a href="voorwaarden.html" data-t="cookie_privacy"> privacybeleid</a>.
-  </p>
+  <p class="cookie-text"><span data-t="ck-txt"></span><a href="voorwaarden.html" data-t="ck-link"></a>.</p>
   <div class="cookie-buttons">
-    <button class="cookie-btn cookie-decline" onclick="declineCookies()" data-t="cookie_decline">Alleen noodzakelijk</button>
-    <button class="cookie-btn cookie-accept" onclick="acceptCookies()" data-t="cookie_accept">Akkoord</button>
+    <button class="cookie-btn cookie-decline" onclick="declineCookies()" data-t="ck-dec"></button>
+    <button class="cookie-btn cookie-accept" onclick="acceptCookies()" data-t="ck-acc"></button>
   </div>
 </div>
-
 <script src="shared.js"></script>
 <script>
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const form = document.getElementById('contactForm');
-    const btn  = form.querySelector('button[type=submit]');
-    const successBox = document.getElementById('formSuccess');
-
-    btn.textContent = '...';
-    btn.disabled = true;
-
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (res.ok) {
-        form.reset();
-        successBox.style.display = 'block';
-        btn.textContent = t('f_submit') || 'Versturen';
-        btn.disabled = false;
-      } else {
-        btn.textContent = 'Fout – probeer opnieuw';
-        btn.disabled = false;
-      }
-    } catch(err) {
-      btn.textContent = 'Fout – probeer opnieuw';
-      btn.disabled = false;
-    }
-  }
-
-  // Translate placeholders
+  // translate placeholders
   document.addEventListener('DOMContentLoaded', () => {
     function applyPh() {
       document.querySelectorAll('[data-t-ph]').forEach(el => {
@@ -284,7 +140,7 @@
     }
     applyPh();
     const orig = window.applyTranslations;
-    window.applyTranslations = function() { orig && orig(); applyPh(); };
+    window.applyTranslations = function(){ orig && orig(); applyPh(); };
   });
 </script>
 </body>
