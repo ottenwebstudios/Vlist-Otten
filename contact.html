@@ -10,15 +10,16 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     body { padding-top: 80px; }
-    .contact-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:72px; align-items:start; }
-    .contact-info h3 { font-family:var(--serif); font-size:1.2rem; font-weight:400; color:var(--gold); margin-bottom:16px; }
-    .contact-info p { font-size:.88rem; color:var(--text-sub); line-height:2.1; }
-    .contact-info a { color:var(--text); text-decoration:none; border-bottom:1px solid rgba(203,190,174,.2); transition:color .2s; }
-    .contact-info a:hover { color:var(--gold); }
-    .c-label { display:block; font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-muted); margin-top:24px; margin-bottom:6px; }
-    .contact-sep { margin-top:32px; height:1px; background:rgba(203,190,174,.1); }
-    .contact-photo { margin-top:32px; width:100%; height:220px; object-fit:cover; filter:brightness(.62) saturate(.6); display:block; }
-    @media (max-width:768px) { .contact-grid { grid-template-columns:1fr; gap:40px; } }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 72px; align-items: start; }
+    .contact-info h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--gold); margin-bottom: 16px; }
+    .contact-info p { font-size: .88rem; color: var(--text-sub); line-height: 2.1; }
+    .contact-info a { color: var(--text); text-decoration: none; border-bottom: 1px solid rgba(203,190,174,.2); transition: color .2s; }
+    .contact-info a:hover { color: var(--gold); }
+    .c-label { display: block; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-muted); margin-top: 24px; margin-bottom: 6px; }
+    .contact-sep { margin-top: 32px; height: 1px; background: rgba(203,190,174,.1); }
+    .contact-photo { margin-top: 32px; width: 100%; height: 220px; object-fit: cover; filter: brightness(.62) saturate(.6); display: block; }
+    .form-sending { opacity: .5; pointer-events: none; }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
   </style>
 </head>
 <body>
@@ -43,9 +44,13 @@
     <li><a href="diensten.html">Diensten</a></li>
     <li><a href="tarieven.html">Tarieven</a></li>
     <li><a href="contact.html">Boeken &amp; Contact</a></li>
-    <li><a href="voorwaarden.html">Klantvoorwaarden &amp; Privacy</a></li>
+    <li><a href="voorwaarden.html">Voorwaarden</a></li>
   </ul>
-  <div class="sidebar-footer">Vlist &ndash; Otten Chauffeursdiensten<br><span class="sidebar-sub"></span><br>+31 6 27 31 32 03 / +31 6 15 66 71 65</div>
+  <div class="sidebar-footer">
+    Vlist &ndash; Otten Chauffeursdiensten<br>
+    <span class="sidebar-sub"></span><br>
+    +31 6 27 31 32 03 / +31 6 15 66 71 65
+  </div>
 </aside>
 
 <main class="page-inner">
@@ -54,12 +59,15 @@
     <h1 class="page-title"><span data-t="ct-t">Boeken &amp;</span> <em data-t="ct-te">Contact</em></h1>
     <div class="page-divider"></div>
   </div>
+
   <div class="contact-grid">
     <div class="contact-info">
       <h3 data-t="ct-h3">Bereikbaarheid</h3>
-      <p data-t="ct-intro"></p>
+      <p data-t="ct-intro">Voor boekingen, offertes of vragen kunt u ons direct bereiken.</p>
+
       <span class="c-label" data-t="ct-el">Email</span>
       <p><a href="mailto:info@vlistotten.nl">info@vlistotten.nl</a></p>
+
       <span class="c-label" data-t="ct-tl">Telefoon</span>
       <p>
         Jip van der Vlist<br/>
@@ -67,20 +75,32 @@
         Cas Otten<br/>
         <a href="tel:+31615667165">+31 6 15 66 71 65</a>
       </p>
+
       <span class="c-label" data-t="ct-al">Beschikbaarheid</span>
-      <p data-t="ct-av"></p>
+      <p data-t="ct-av">Maandag t/m zondag<br/>07:00 – 00:00</p>
+
       <div class="contact-sep"></div>
-      <!-- images/contact.jpg -->
       <img class="contact-photo" src="images/contact.jpg" alt="Vlist Otten" />
     </div>
 
-    <!-- Formspree: vervang YOUR_FORM_ID -->
-    <form action="https://formspree.io/f/mzdjavpj" method="POST" onsubmit="handleForm(event)">
-      <input type="hidden" name="_subject" value="Nieuwe aanvraag – Vlist Otten" />
+    <!--
+      Web3Forms formulier.
+      Stap 1: ga naar web3forms.com en maak een gratis account aan.
+      Stap 2: maak een nieuw formulier aan en kopieer je Access Key.
+      Stap 3: vervang JOUW_ACCESS_KEY_HIER hieronder met die key.
+      Klaar — geen verdere instellingen nodig.
+    -->
+    <form id="contactForm" onsubmit="submitForm(event)">
+      <!-- Web3Forms access key — vervang dit -->
+      <input type="hidden" name="access_key" value="fce09628-727f-4b2d-ac11-e091351f8e1f" />
+      <input type="hidden" name="subject" value="Nieuwe aanvraag – Vlist Otten" />
+      <input type="hidden" name="from_name" value="Vlist Otten Website" />
+      <!-- Botcheck — niet verwijderen -->
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
 
       <div class="form-group">
         <label data-t="f-nl">Uw naam</label>
-        <input type="text" name="name" placeholder="Voor- en achternaam" required data-t-ph="f-nl-ph" />
+        <input type="text" name="name" placeholder="Voor- en achternaam" required />
       </div>
       <div class="form-group">
         <label data-t="f-el">E-mailadres</label>
@@ -96,7 +116,7 @@
       </div>
       <div class="form-group">
         <label data-t="f-own-car-lbl">Merk &amp; type van uw auto</label>
-        <input type="text" name="auto" placeholder="bijv. Volkswagen Golf, BMW 5-serie..." data-t-ph="f-own-car-ph" />
+        <input type="text" name="auto" placeholder="bijv. Volkswagen Golf, BMW 5-serie..." />
       </div>
       <div class="form-group">
         <label data-t="f-dl">Type dienst</label>
@@ -115,13 +135,21 @@
         <label data-t="f-ml">Bericht</label>
         <textarea name="message" placeholder="Vermeld uw gewenste datum, bestemming en eventuele dranken of versnaperingen. Hoe meer detail, hoe beter wij u kunnen helpen."></textarea>
       </div>
-      <button type="submit" class="btn btn-primary" style="width:100%" data-t="f-sub">Versturen</button>
-      <div class="form-success" data-t="f-ok"></div>
+
+      <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%" data-t="f-sub">Versturen</button>
+
+      <div id="formSuccess" class="form-success" data-t="f-ok" style="display:none;"></div>
+      <div id="formError" style="display:none; margin-top:16px; padding:16px 20px; background:rgba(180,50,50,.1); border:1px solid rgba(180,50,50,.3); font-size:.86rem; color:#e8a0a0; line-height:1.7;">
+        Er is iets misgegaan. Probeer het opnieuw of stuur een e-mail naar <a href="mailto:info@vlistotten.nl" style="color:var(--gold);">info@vlistotten.nl</a>.
+      </div>
     </form>
   </div>
 </main>
 
-<footer class="site-footer">&copy; 2026 Vlist &ndash; Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;<a href="voorwaarden.html#av" data-t="ft-av">Algemene Voorwaarden</a></footer>
+<footer class="site-footer">
+  &copy; 2026 Vlist &ndash; Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;
+  <a href="voorwaarden.html#av" data-t="ft-av">Algemene Voorwaarden</a>
+</footer>
 <div class="cookie-bar" id="cookieBar">
   <p class="cookie-text"><span data-t="ck-txt"></span><a href="voorwaarden.html" data-t="ck-link"></a>.</p>
   <div class="cookie-buttons">
@@ -129,19 +157,48 @@
     <button class="cookie-btn cookie-accept" onclick="acceptCookies()" data-t="ck-acc"></button>
   </div>
 </div>
+
 <script src="shared.js"></script>
 <script>
-  // translate placeholders
-  document.addEventListener('DOMContentLoaded', () => {
-    function applyPh() {
-      document.querySelectorAll('[data-t-ph]').forEach(el => {
-        el.placeholder = t(el.getAttribute('data-t-ph'));
-      });
+async function submitForm(e) {
+  e.preventDefault();
+
+  const form = document.getElementById('contactForm');
+  const btn  = document.getElementById('submitBtn');
+  const successBox = document.getElementById('formSuccess');
+  const errorBox   = document.getElementById('formError');
+
+  // Reset
+  successBox.style.display = 'none';
+  errorBox.style.display   = 'none';
+  btn.textContent = '...';
+  btn.disabled = true;
+  form.classList.add('form-sending');
+
+  const data = new FormData(form);
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    });
+    const json = await res.json();
+
+    if (json.success) {
+      successBox.textContent = t('f-ok') || 'Bedankt! Wij nemen zo snel mogelijk contact op.';
+      successBox.style.display = 'block';
+      form.reset();
+    } else {
+      errorBox.style.display = 'block';
     }
-    applyPh();
-    const orig = window.applyTranslations;
-    window.applyTranslations = function(){ orig && orig(); applyPh(); };
-  });
+  } catch (err) {
+    errorBox.style.display = 'block';
+  }
+
+  btn.textContent = t('f-sub') || 'Versturen';
+  btn.disabled = false;
+  form.classList.remove('form-sending');
+}
 </script>
 </body>
 </html>
