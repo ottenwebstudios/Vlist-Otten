@@ -10,92 +10,26 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     body { padding-top: 80px; }
-
-    .about-intro {
-      max-width: 720px;
-      margin-bottom: 64px;
-    }
-    .about-intro p {
-      font-size: .93rem;
-      color: var(--text-sub);
-      line-height: 1.95;
-      margin-bottom: 16px;
-    }
-
-    /* Two equal person cards side by side */
-    .persons-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-    }
-
-    .person-card {
-      background: var(--primary-dk);
-      border: 1px solid rgba(203,190,174,.1);
-      overflow: hidden;
-    }
-
-    /* Full-width photo at top of card */
-    .person-photo-wrap {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-      background: var(--primary-nav);
-    }
-    .person-photo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-      filter: saturate(.82) brightness(.88);
-      transition: transform 6s ease;
-    }
-    .person-card:hover .person-photo-wrap img {
-      transform: scale(1.03);
-    }
-
-    .person-body {
-      padding: 32px 36px 36px;
-    }
-    .person-name {
-      font-family: var(--serif);
-      font-size: 1.4rem;
-      color: var(--gold);
-      font-weight: 400;
-      margin-bottom: 3px;
-    }
-    .person-age {
-      font-size: .72rem;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-    .person-title {
-      font-size: .65rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--gold-muted);
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid rgba(203,190,174,.08);
-    }
-    .person-bio p {
-      font-size: .87rem;
-      color: var(--text-sub);
-      line-height: 1.9;
-      margin-bottom: 12px;
-    }
-    .person-bio p:last-child { margin-bottom: 0; }
-
-    @media (max-width: 768px) {
-      .persons-grid { grid-template-columns: 1fr; }
-    }
+    .about-intro { max-width:720px; margin-bottom:64px; }
+    .about-intro p { font-size:.93rem; color:var(--text-sub); line-height:1.95; margin-bottom:16px; }
+    .persons-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+    .person-card { background:var(--bg-dk); border:1px solid rgba(203,190,174,.1); overflow:hidden; }
+    .person-photo-wrap { width:100%; aspect-ratio:4/3; overflow:hidden; background:var(--bg-nav); }
+    .person-photo-wrap img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; filter:saturate(.82) brightness(.88); transition:transform 6s ease; }
+    .person-card:hover .person-photo-wrap img { transform:scale(1.03); }
+    .person-body { padding:32px 36px 36px; }
+    .person-name { font-family:var(--serif); font-size:1.4rem; color:var(--gold); font-weight:400; margin-bottom:3px; }
+    .person-age { font-size:.72rem; color:var(--text-muted); margin-bottom:6px; }
+    .person-role { font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-muted); margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid rgba(203,190,174,.08); }
+    .person-bio p { font-size:.87rem; color:var(--text-sub); line-height:1.9; margin-bottom:12px; }
+    .person-bio p:last-child { margin-bottom:0; }
+    @media (max-width:768px) { .persons-grid { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
 
 <nav id="mainNav">
-  <div class="hamburger" id="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+  <div class="hamburger" id="hamburger" onclick="toggleSidebar()">
     <span></span><span></span><span></span>
   </div>
   <a class="nav-logo" href="index.html">Vlist <span>&ndash;</span> Otten</a>
@@ -107,97 +41,81 @@
     </div>
   </div>
 </nav>
-
 <div class="sidebar-overlay" id="overlay" onclick="closeSidebar()"></div>
 <aside class="sidebar" id="sidebar">
-  <span class="sidebar-nav-label">Navigatie</span>
+  <span class="sidebar-label">Navigatie</span>
   <ul class="sidebar-links">
-    <li><a href="index.html"       data-t="nav_home"></a></li>
-    <li><a href="about.html"       data-t="nav_about"></a></li>
-    <li><a href="diensten.html"    data-t="nav_diensten"></a></li>
-    <li><a href="tarieven.html"    data-t="nav_tarieven"></a></li>
-    <li><a href="contact.html"     data-t="nav_contact"></a></li>
-    <li><a href="voorwaarden.html" data-t="nav_voorwaarden"></a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">Over Ons</a></li>
+    <li><a href="diensten.html">Diensten</a></li>
+    <li><a href="tarieven.html">Tarieven</a></li>
+    <li><a href="contact.html">Boeken &amp; Contact</a></li>
+    <li><a href="voorwaarden.html">Klantvoorwaarden &amp; Privacy</a></li>
   </ul>
   <div class="sidebar-footer">
-    Vlist – Otten Chauffeursdiensten<br>
-    KvK: 99913925 &nbsp;·&nbsp; info@vlistotten.nl
+    Vlist &ndash; Otten Chauffeursdiensten<br>
+    <span class="sidebar-sub"></span><br>
+    +31 6 27 31 32 03 / +31 6 15 66 71 65
   </div>
 </aside>
 
 <main class="page-inner">
   <div class="page-header">
-    <p class="page-eyebrow" data-t="about_eyebrow">Het team</p>
-    <h1 class="page-title">
-      <span data-t="about_title">Over</span> <em data-t="about_title_em">Ons</em>
-    </h1>
+    <p class="page-eyebrow" data-t="ab-ey">Het team</p>
+    <h1 class="page-title"><span data-t="ab-t">Over</span> <em data-t="ab-te">Ons</em></h1>
     <div class="page-divider"></div>
   </div>
-
   <div class="about-intro">
-    <p data-t="about_intro1">Vlist – Otten is opgericht door twee vrienden met een gedeelde passie voor punctualiteit, klantvriendelijkheid en autorijden. Wij geloven dat élke rit, van een zakelijke transfer tot een avond uit, een ervaring moet zijn die u bijblijft.</p>
-    <p data-t="about_intro2">Elke rit wordt zorgvuldig ingepland zodat u altijd op tijd in uw eigen auto aankomt. Discretie is voor ons een vanzelfsprekendheid, geen extra dienst.</p>
-    <p data-t="about_intro3">Wij opereren in en rondom het Gooi, maar rijden door heel Nederland. Neem vrijblijvend contact met ons op om uw wens te bespreken.</p>
+    <p data-t="ab-i1"></p>
+    <p data-t="ab-i2"></p>
+    <p data-t="ab-i3"></p>
   </div>
-
   <div class="persons-grid">
-
-    <!-- CAS -->
     <div class="person-card">
       <div class="person-photo-wrap">
-        <!-- Zet hier: images/cas.jpg  (1:1 of 4:3 portretfoto van Cas) -->
-        <img src="images/cas.jpg" alt="Cas Otten"
-             onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80&fit=crop'" />
+        <!-- images/cas.jpg -->
+        <img src="images/cas.jpg" alt="Cas Otten" />
       </div>
       <div class="person-body">
         <div class="person-name">Cas Otten</div>
         <div class="person-age">21 jaar</div>
-        <div class="person-title" data-t="about_role">Chauffeur &amp; Co-founder</div>
+        <div class="person-role" data-t="ab-role">Chauffeur &amp; Co-founder</div>
         <div class="person-bio">
-          <p data-t="cas_bio1">Mijn naam is Cas Otten, 21 jaar. Ik ben mede oprichter van Vlist-Otten. Mijn passie voor auto's en autorijden is al begonnen toen ik erg jong was. Mijn vader heeft namelijk een eigen race team. Hiermee gingen we het hele land door en sleutelde soms dagen lang aan auto's.</p>
-          <p data-t="cas_bio2">Ik ken Jip al sinds ik 4 ben. Daardoor zijn wij hele goede vrienden. De passie voor het onderweg zijn delen wij sinds toen, en daarom zijn wij samen dit bedrijf begonnen.</p>
+          <p data-t="cas-b1"></p>
+          <p data-t="cas-b2"></p>
         </div>
       </div>
     </div>
-
-    <!-- JIP -->
     <div class="person-card">
       <div class="person-photo-wrap">
-        <!-- Zet hier: images/jip.jpg  (1:1 of 4:3 portretfoto van Jip) -->
-        <img src="images/jip.jpg" alt="Jip van der Vlist"
-             onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop'" />
+        <!-- images/jip.jpg -->
+        <img src="images/jip.jpg" alt="Jip van der Vlist" />
       </div>
       <div class="person-body">
         <div class="person-name">Jip van der Vlist</div>
         <div class="person-age">23 jaar</div>
-        <div class="person-title" data-t="about_role">Chauffeur &amp; Co-founder</div>
+        <div class="person-role" data-t="ab-role">Chauffeur &amp; Co-founder</div>
         <div class="person-bio">
-          <p data-t="jip_bio1">Mijn naam is Jip, 23 jaar en medeoprichter van Vlist-Otten. Wat begon als een eenmansbedrijf groeide in vijf jaar tijd uit tot een stevige basis, waarna ik samen met mijn beste vriend Vlist-Otten heb opgezet.</p>
-          <p data-t="jip_bio2">Mijn passie voor alles wat rijdt, vliegt en vaart zit er al van jongs af aan in. In mijn vrije tijd ben ik graag op het water te vinden om te zeilen of in de lucht tijdens het zweefvliegen. Die passie zie je terug in mijn werk: aandacht voor detail, veiligheid en het plezier van onderweg zijn.</p>
-          <p data-t="jip_bio3">Ik hoop u binnenkort te mogen verwelkomen aan boord van uw eerste rit.</p>
+          <p data-t="jip-b1"></p>
+          <p data-t="jip-b2"></p>
+          <p data-t="jip-b3"></p>
         </div>
       </div>
     </div>
-
   </div>
 </main>
 
 <footer class="site-footer">
-  &copy; 2026 Vlist – Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;
-  <a href="voorwaarden.html#av" data-t="footer_av">Algemene Voorwaarden</a>
+  &copy; 2026 Vlist &ndash; Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;
+  <a href="voorwaarden.html#av" data-t="ft-av">Algemene Voorwaarden</a>
 </footer>
-
 <div class="cookie-bar" id="cookieBar">
-  <p class="cookie-text">
-    <span data-t="cookie_text">Wij gebruiken functionele cookies om uw voorkeuren op te slaan. Met uw toestemming plaatsen wij ook analytische cookies. Lees ons</span>
-    <a href="voorwaarden.html" data-t="cookie_privacy"> privacybeleid</a>.
-  </p>
+  <p class="cookie-text"><span data-t="ck-txt"></span><a href="voorwaarden.html" data-t="ck-link"></a>.</p>
   <div class="cookie-buttons">
-    <button class="cookie-btn cookie-decline" onclick="declineCookies()" data-t="cookie_decline">Alleen noodzakelijk</button>
-    <button class="cookie-btn cookie-accept" onclick="acceptCookies()" data-t="cookie_accept">Akkoord</button>
+    <button class="cookie-btn cookie-decline" onclick="declineCookies()" data-t="ck-dec"></button>
+    <button class="cookie-btn cookie-accept" onclick="acceptCookies()" data-t="ck-acc"></button>
   </div>
 </div>
-
 <script src="shared.js"></script>
 </body>
 </html>
