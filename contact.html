@@ -71,7 +71,7 @@
       <p data-t="ct-intro">Voor boekingen, offertes of vragen kunt u ons direct bereiken.</p>
 
       <span class="c-label" data-t="ct-el">Email</span>
-      <p><a href="mailto:info@vlistotten.nl">info@vlistotten.nl</a></p>
+      <p><a href="mailto:info@vlistotten.nl" style="color:var(--gold);">info@vlistotten.nl</a></p>
 
       <span class="c-label" data-t="ct-tl">Telefoon</span>
       <p>
@@ -119,10 +119,6 @@
         <input type="text" name="address" placeholder="Straat, huisnummer, woonplaats" />
       </div>
       <div class="form-group">
-        <label data-t="f-own-car-lbl">Merk &amp; type van uw auto</label>
-        <input type="text" name="auto" placeholder="bijv. Volkswagen Golf, BMW 5-serie..." />
-      </div>
-      <div class="form-group">
         <label data-t="f-dl">Type dienst</label>
         <select name="dienst">
           <option value="">— Selecteer een dienst —</option>
@@ -144,7 +140,7 @@
 
       <div id="formSuccess" class="form-success" data-t="f-ok" style="display:none;"></div>
       <div id="formError" style="display:none; margin-top:16px; padding:16px 20px; background:rgba(180,50,50,.1); border:1px solid rgba(180,50,50,.3); font-size:.86rem; color:#e8a0a0; line-height:1.7;">
-        Er is iets misgegaan. Probeer het opnieuw of stuur een e-mail naar <a href="/cdn-cgi/l/email-protection#b5dcdbd3daf5c3d9dcc6c1dac1c1d0db9bdbd9" style="color:var(--gold);"><span class="__cf_email__" data-cfemail="a5cccbc3cae5d3c9ccd6d1cad1d1c0cb8bcbc9">[email&#160;protected]</span></a>.
+        Er is iets misgegaan. Probeer het opnieuw of stuur een e-mail naar <a href="mailto:info@vlistotten.nl" style="color:var(--gold);">info@vlistotten.nl</a>.
       </div>
     </form>
   </div>
@@ -162,7 +158,7 @@
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="shared.js"></script>
+<script src="shared.js"></script>
 <script>
 async function submitForm(e) {
   e.preventDefault();
@@ -179,14 +175,4 @@ async function submitForm(e) {
   btn.disabled = true;
   form.classList.add('form-sending');
 
-  const data = new FormData(form);
-
-  try {
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: data
-    });
-    const json = await res.json();
-
-    if (json.success) {
-      successBox.textContent = t('f-ok') ||
+  const data = new
