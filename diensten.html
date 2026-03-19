@@ -2,8 +2,12 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Privéchauffeur, BOB service, luchthaven transfer, auto naar het buitenland, was service en meer." />
+  <meta name="theme-color" content="#1e1810" />
   <title>Diensten – Vlist Otten</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
@@ -24,7 +28,7 @@
 <body>
 
 <nav id="mainNav">
-  <div class="hamburger" id="hamburger" onclick="toggleSidebar()"><span></span><span></span><span></span></div>
+  <div class="hamburger" id="hamburger" onclick="toggleSidebar()" aria-label="Menu" role="button"><span></span><span></span><span></span></div>
   <a class="nav-logo" href="index.html">Vlist <span>&ndash;</span> Otten</a>
   <div class="nav-right">
     <div class="lang-switch">
@@ -35,7 +39,7 @@
   </div>
 </nav>
 <div class="sidebar-overlay" id="overlay" onclick="closeSidebar()"></div>
-<aside class="sidebar" id="sidebar">
+<aside class="sidebar" id="sidebar" aria-label="Navigatie">
   <span class="sidebar-label">Navigatie</span>
   <ul class="sidebar-links">
     <li><a href="index.html">Home</a></li>
@@ -43,7 +47,7 @@
     <li><a href="diensten.html">Diensten</a></li>
     <li><a href="tarieven.html">Tarieven</a></li>
     <li><a href="contact.html">Boeken &amp; Contact</a></li>
-    <li><a href="voorwaarden.html">Klantvoorwaarden &amp; Privacy</a></li>
+    <li><a href="voorwaarden.html">Voorwaarden</a></li>
   </ul>
   <div class="sidebar-footer">Vlist &ndash; Otten Chauffeursdiensten<br><span class="sidebar-sub"></span><br>+31 6 27 31 32 03 / +31 6 15 66 71 65</div>
 </aside>
@@ -60,6 +64,9 @@
     <div class="dienst-card"><div class="dienst-title" data-t="d3-title">Auto naar het buitenland</div><p data-t="d3-text"></p></div>
     <div class="dienst-card"><div class="dienst-title" data-t="d4-title">Luchthaven transfer</div><p data-t="d4-text"></p></div>
     <div class="dienst-card"><div class="dienst-title" data-t="d5-title">Lange afstand</div><p data-t="d5-text"></p></div>
+    <!-- Was service — nieuwe dienst op plek 6 -->
+    <div class="dienst-card"><div class="dienst-title" data-t="d7-title">Was service</div><p data-t="d7-text"></p></div>
+    <!-- Trailerservice — binnenkort, plek 7 -->
     <div class="dienst-card soon">
       <div class="dienst-badge" data-t="d6-badge">Binnenkort</div>
       <div class="dienst-title" data-t="d6-title">Trailerservice</div>
@@ -70,7 +77,7 @@
 </main>
 
 <footer class="site-footer">&copy; 2026 Vlist &ndash; Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;<a href="voorwaarden.html#av" data-t="ft-av">Algemene Voorwaarden</a></footer>
-<div class="cookie-bar" id="cookieBar">
+<div class="cookie-bar" id="cookieBar" role="dialog" aria-label="Cookie melding">
   <p class="cookie-text"><span data-t="ck-txt"></span><a href="voorwaarden.html" data-t="ck-link"></a>.</p>
   <div class="cookie-buttons">
     <button class="cookie-btn cookie-decline" onclick="declineCookies()" data-t="ck-dec"></button>
