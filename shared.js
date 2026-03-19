@@ -56,7 +56,7 @@ const LANG = {
     't5-f1': 'In uw eigen auto', 't5-f2': 'Amsterdam – Brussel – Parijs', 't5-f3': 'Dranken & versnaperingen op aanvraag',
     't6-name': 'Trailerservice', 't6-badge': 'Binnenkort',
     't7-name': 'Was service', 't7-f1': 'Los of tijdens de rit', 't7-f2': 'Uw auto professioneel gewassen', 't7-f3': 'Op aanvraag in te plannen', 't6-f1': 'Auto & boot vervoer', 't6-f2': 'Veilig & verzekerd', 't6-f3': 'Neem contact op voor info',
-    'tr-note': 'Dranken en versnaperingen kunnen bij alle diensten worden aangevraagd via het boekingsformulier. Prijzen zijn inclusief BTW tenzij anders vermeld.',
+    'tr-note': 'Dranken en versnaperingen kunnen bij alle diensten worden aangevraagd via het boekingsformulier. Alle prijzen zijn exclusief BTW.',
     'tr-cta': 'Aanvragen',
 
     // CONTACT
@@ -143,7 +143,7 @@ const LANG = {
     't5-f1': 'In your own car', 't5-f2': 'Amsterdam – Brussels – Paris', 't5-f3': 'Drinks & refreshments on request',
     't6-name': 'Trailer service', 't6-badge': 'Coming soon',
     't7-name': 'Car wash service', 't7-f1': 'Separately or during your ride', 't7-f2': 'Professionally washed', 't7-f3': 'Bookable on request', 't6-f1': 'Car & boat transport', 't6-f2': 'Safe & insured', 't6-f3': 'Contact us for info',
-    'tr-note': 'Drinks and refreshments can be requested for all services via the booking form. Prices include VAT unless stated otherwise.',
+    'tr-note': 'Drinks and refreshments can be requested for all services via the booking form. Prices exclude VAT unless stated otherwise.',
     'tr-cta': 'Request',
 
     'ct-ey': 'Get in touch', 'ct-t': 'Book &', 'ct-te': 'Contact',
