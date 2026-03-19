@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Neem contact op met Vlist – Otten voor een boeking of offerte." />
+  <meta name="theme-color" content="#1e1810" />
   <title>Contact – Vlist Otten</title>
-    <!-- Favicon — upload favicon.ico to root of your repo -->
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,20 +17,20 @@
     .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 72px; align-items: start; }
     .contact-info h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--gold); margin-bottom: 16px; }
     .contact-info p { font-size: .88rem; color: var(--text-sub); line-height: 2.1; }
-    .contact-info a { color: var(--text); text-decoration: none; border-bottom: 1px solid rgba(203,190,174,.2); transition: color .2s; }
-    .contact-info a:hover { color: var(--gold); }
+    .contact-info a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(203,190,174,.25); transition: color .2s; }
+    .contact-info a:hover { color: var(--neutral); }
     .c-label { display: block; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-muted); margin-top: 24px; margin-bottom: 6px; }
     .contact-sep { margin-top: 32px; height: 1px; background: rgba(203,190,174,.1); }
-    .contact-photo { margin-top: 32px; width: 100%; height: 220px; object-fit: cover; filter: brightness(.62) saturate(.6); display: block; }
-    .form-sending { opacity: .5; pointer-events: none; }
+    .btn-loading { opacity: .6; pointer-events: none; }
     @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
   </style>
-  <meta name="theme-color" content="#1e1810" />
 </head>
 <body>
 
 <nav id="mainNav">
-  <div class="hamburger" id="hamburger" onclick="toggleSidebar()" aria-label="Menu" role="button"><span></span><span></span><span></span></div>
+  <div class="hamburger" id="hamburger" onclick="toggleSidebar()" aria-label="Menu" role="button">
+    <span></span><span></span><span></span>
+  </div>
   <a class="nav-logo" href="index.html">Vlist <span>&ndash;</span> Otten</a>
   <div class="nav-right">
     <div class="lang-switch">
@@ -40,6 +40,7 @@
     </div>
   </div>
 </nav>
+
 <div class="sidebar-overlay" id="overlay" onclick="closeSidebar()"></div>
 <aside class="sidebar" id="sidebar" aria-label="Navigatie">
   <span class="sidebar-label">Navigatie</span>
@@ -61,23 +62,27 @@
 <main class="page-inner">
   <div class="page-header">
     <p class="page-eyebrow" data-t="ct-ey">Neem contact op</p>
-    <h1 class="page-title"><span data-t="ct-t">Boeken &amp;</span> <em data-t="ct-te">Contact</em></h1>
+    <h1 class="page-title">
+      <span data-t="ct-t">Boeken &amp;</span> <em data-t="ct-te">Contact</em>
+    </h1>
     <div class="page-divider"></div>
   </div>
 
   <div class="contact-grid">
+
+    <!-- LINKS: contactinfo -->
     <div class="contact-info">
       <h3 data-t="ct-h3">Bereikbaarheid</h3>
       <p data-t="ct-intro">Voor boekingen, offertes of vragen kunt u ons direct bereiken.</p>
 
       <span class="c-label" data-t="ct-el">Email</span>
-      <p><a href="mailto:info@vlistotten.nl" style="color:var(--gold);">info@vlistotten.nl</a></p>
+      <p><a href="mailto:info@vlistotten.nl">info&#64;vlistotten.nl</a></p>
 
       <span class="c-label" data-t="ct-tl">Telefoon</span>
       <p>
-        Jip van der Vlist<br/>
-        <a href="tel:+31627313203">+31 6 27 31 32 03</a><br/><br/>
-        Cas Otten<br/>
+        Jip van der Vlist<br>
+        <a href="tel:+31627313203">+31 6 27 31 32 03</a><br><br>
+        Cas Otten<br>
         <a href="tel:+31615667165">+31 6 15 66 71 65</a>
       </p>
 
@@ -87,62 +92,80 @@
       <div class="contact-sep"></div>
     </div>
 
+    <!-- RECHTS: formulier -->
     <!--
-      Web3Forms formulier.
-      Stap 1: ga naar web3forms.com en maak een gratis account aan.
-      Stap 2: maak een nieuw formulier aan en kopieer je Access Key.
-      Stap 3: vervang JOUW_ACCESS_KEY_HIER hieronder met die key.
-      Klaar — geen verdere instellingen nodig.
+      ════════════════════════════════════════
+      WEB3FORMS INSTELLEN — LEES DIT:
+      1. Ga naar https://web3forms.com
+      2. Vul info@vlistotten.nl in, klik "Get Access Key"
+      3. Je ontvangt een e-mail met een key, bijv:
+         ab12cd34-ef56-7890-abcd-ef1234567890
+      4. Vervang JOUW_ACCESS_KEY_HIER hieronder
+         met die key (tussen de aanhalingstekens)
+      5. Sla op en upload naar GitHub — klaar!
+      ════════════════════════════════════════
     -->
-    <form id="contactForm" onsubmit="submitForm(event)">
-      <!-- Web3Forms access key — vervang dit -->
-      <input type="hidden" name="access_key" value="d32f5563-65e6-4977-acea-fbbad6dd056b" />
-      <input type="hidden" name="subject" value="Nieuwe aanvraag – Vlist Otten" />
-      <input type="hidden" name="from_name" value="Vlist Otten Website" />
-      <!-- Botcheck — niet verwijderen -->
-      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+    <form id="contactForm">
+      <!-- ▼ VERVANG ALLEEN DIT ▼ -->
+      <input type="hidden" name="access_key" value="b036d00c-aa22-4099-af7f-99ce4e7237e3">
+      <!-- ▲ VERVANG ALLEEN DIT ▲ -->
+
+      <input type="hidden" name="subject" value="Nieuwe aanvraag - Vlist Otten">
+      <input type="hidden" name="from_name" value="Vlist Otten Website">
+      <input type="hidden" name="replyto" value="info@vlistotten.nl">
+      <!-- Spam bescherming — NIET verwijderen -->
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
       <div class="form-group">
         <label data-t="f-nl">Uw naam</label>
-        <input type="text" name="name" placeholder="Voor- en achternaam" required />
+        <input type="text" name="name" placeholder="Voor- en achternaam" required>
       </div>
       <div class="form-group">
         <label data-t="f-el">E-mailadres</label>
-        <input type="email" name="email" placeholder="uw@email.nl" required />
+        <input type="email" name="email" placeholder="uw@email.nl" required>
       </div>
       <div class="form-group">
         <label data-t="f-tl">Telefoonnummer</label>
-        <input type="tel" name="phone" placeholder="+31 6 00 00 00 00" />
+        <input type="tel" name="phone" placeholder="+31 6 00 00 00 00">
       </div>
       <div class="form-group">
         <label data-t="f-al">Adres / vertrekpunt</label>
-        <input type="text" name="address" placeholder="Straat, huisnummer, woonplaats" />
+        <input type="text" name="address" placeholder="Straat, huisnummer, woonplaats">
       </div>
       <div class="form-group">
         <label data-t="f-dl">Type dienst</label>
-        <select name="dienst">
+        <select name="dienst" id="dienstSelect">
           <option value="">— Selecteer een dienst —</option>
-          <option>Privéchauffeur op maat</option>
-          <option>BOB service</option>
-          <option>Auto naar het buitenland</option>
-          <option>Luchthaven transfer</option>
-          <option>Lange afstand</option>
-          <option>Was service</option>
-          <option>Anders</option>
+          <option value="Privechauffeur op maat">Privéchauffeur op maat</option>
+          <option value="BOB service">BOB service</option>
+          <option value="Auto naar het buitenland">Auto naar het buitenland</option>
+          <option value="Luchthaven transfer">Luchthaven transfer</option>
+          <option value="Lange afstand">Lange afstand</option>
+          <option value="Was service">Was service</option>
+          <option value="Anders">Anders</option>
         </select>
       </div>
       <div class="form-group">
         <label data-t="f-ml">Bericht</label>
-        <textarea name="message" placeholder="Vermeld uw gewenste datum, bestemming en eventuele dranken of versnaperingen. Hoe meer detail, hoe beter wij u kunnen helpen."></textarea>
+        <textarea name="message" placeholder="Vermeld uw gewenste datum, bestemming en eventuele wensen. Hoe meer detail, hoe beter wij u kunnen helpen."></textarea>
       </div>
 
-      <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%" data-t="f-sub">Versturen</button>
+      <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%">
+        <span id="btnText" data-t="f-sub">Versturen</span>
+      </button>
 
-      <div id="formSuccess" class="form-success" data-t="f-ok" style="display:none;"></div>
-      <div id="formError" style="display:none; margin-top:16px; padding:16px 20px; background:rgba(180,50,50,.1); border:1px solid rgba(180,50,50,.3); font-size:.86rem; color:#e8a0a0; line-height:1.7;">
-        Er is iets misgegaan. Probeer het opnieuw of stuur een e-mail naar <a href="mailto:info@vlistotten.nl" style="color:var(--gold);">info@vlistotten.nl</a>.
+      <!-- Succes melding -->
+      <div id="formSuccess" style="display:none; margin-top:20px; padding:18px 22px; background:rgba(203,190,174,.1); border:1px solid rgba(203,190,174,.25); font-size:.88rem; color:var(--text-sub); line-height:1.7;">
+        <span data-t="f-ok">Bedankt! Wij nemen zo snel mogelijk contact op.</span>
+      </div>
+
+      <!-- Fout melding -->
+      <div id="formError" style="display:none; margin-top:20px; padding:18px 22px; background:rgba(180,50,50,.1); border:1px solid rgba(180,50,50,.3); font-size:.86rem; color:#e8a0a0; line-height:1.7;">
+        Er is iets misgegaan. Stuur ons direct een e-mail:
+        <strong><a href="mailto:info@vlistotten.nl" style="color:var(--gold);">info&#64;vlistotten.nl</a></strong>
       </div>
     </form>
+
   </div>
 </main>
 
@@ -150,8 +173,12 @@
   &copy; 2026 Vlist &ndash; Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;
   <a href="voorwaarden.html#av" data-t="ft-av">Algemene Voorwaarden</a>
 </footer>
+
 <div class="cookie-bar" id="cookieBar" role="dialog" aria-label="Cookie melding">
-  <p class="cookie-text"><span data-t="ck-txt"></span><a href="voorwaarden.html" data-t="ck-link"></a>.</p>
+  <p class="cookie-text">
+    <span data-t="ck-txt"></span>
+    <a href="voorwaarden.html" data-t="ck-link"></a>.
+  </p>
   <div class="cookie-buttons">
     <button class="cookie-btn cookie-decline" onclick="declineCookies()" data-t="ck-dec"></button>
     <button class="cookie-btn cookie-accept" onclick="acceptCookies()" data-t="ck-acc"></button>
@@ -160,19 +187,67 @@
 
 <script src="shared.js"></script>
 <script>
-async function submitForm(e) {
+// Pre-select dienst from URL ?dienst= parameter
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const dienst = params.get('dienst');
+  if (!dienst) return;
+  const sel = document.getElementById('dienstSelect');
+  if (!sel) return;
+  for (const opt of sel.options) {
+    if (opt.value.toLowerCase() === decodeURIComponent(dienst).toLowerCase() ||
+        opt.text.toLowerCase().includes(decodeURIComponent(dienst).toLowerCase())) {
+      opt.selected = true;
+      break;
+    }
+  }
+})();
+
+// Form submit via Web3Forms
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
   e.preventDefault();
 
-  const form = document.getElementById('contactForm');
-  const btn  = document.getElementById('submitBtn');
+  const form = this;
+  const btn = document.getElementById('submitBtn');
+  const btnText = document.getElementById('btnText');
   const successBox = document.getElementById('formSuccess');
-  const errorBox   = document.getElementById('formError');
+  const errorBox = document.getElementById('formError');
 
   // Reset
   successBox.style.display = 'none';
-  errorBox.style.display   = 'none';
-  btn.textContent = '...';
-  btn.disabled = true;
-  form.classList.add('form-sending');
+  errorBox.style.display = 'none';
 
-  const data = new
+  // Loading state
+  btn.classList.add('btn-loading');
+  btnText.textContent = '...';
+
+  try {
+    const formData = new FormData(form);
+
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      successBox.style.display = 'block';
+      form.reset();
+    } else {
+      console.error('Web3Forms error:', result);
+      errorBox.style.display = 'block';
+    }
+  } catch (err) {
+    console.error('Fetch error:', err);
+    errorBox.style.display = 'block';
+  }
+
+  // Reset button
+  btn.classList.remove('btn-loading');
+  btnText.textContent = 'Versturen';
+});
+</script>
+
+</body>
+</html>
