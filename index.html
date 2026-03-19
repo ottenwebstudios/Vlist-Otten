@@ -32,12 +32,6 @@
     .hero-title em { font-style:italic; color:var(--gold); }
     .hero-line { width:48px; height:1px; background:var(--gold-muted); margin-bottom:28px; }
     .hero-sub { font-size:.95rem; line-height:1.9; color:var(--text-sub); max-width:380px; margin-bottom:20px; }
-    .hero-own-car {
-      display:inline-flex; align-items:center; gap:9px;
-      font-size:.72rem; letter-spacing:.12em; text-transform:uppercase;
-      color:var(--gold); margin-bottom:44px;
-    }
-    .hero-own-car::before { content:''; display:block; width:20px; height:1px; background:var(--gold); flex-shrink:0; }
     .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
 
     /* ── ABOUT STRIP met foto's ── */
@@ -80,7 +74,7 @@
     @media (max-width:768px) {
       .hero { grid-template-columns:1fr; min-height:auto; }
       .hero-img { height:55vw; }
-      .hero-img::after { background:linear-gradient(to bottom, transparent 40%, var(--bg)); }
+      .hero-img::after { display:none; }
       .hero-content { padding:80px 24px 44px; }
       .home-about { flex-direction:column; }
       .home-about-text { padding:40px 24px; }
@@ -141,7 +135,6 @@
       </h1>
       <div class="hero-line"></div>
       <p class="hero-sub" data-t="h-sub"></p>
-      <p class="hero-own-car" data-t="h-own-car">U rijdt altijd mee in uw eigen auto.</p>
       <div class="hero-btns">
         <a class="btn btn-primary" href="tarieven.html" data-t="h-btn1">Tarieven</a>
         <a class="btn btn-outline" href="contact.html" data-t="h-btn2">Boeken</a>
