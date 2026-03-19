@@ -15,7 +15,9 @@
   <style>
     body { padding-top: 80px; }
     .diensten-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(0,0,0,.25); border:1px solid rgba(203,190,174,.08); margin-bottom:48px; }
-    .dienst-card { background:var(--bg-dk); padding:40px 32px; transition:background .3s; }
+    .dienst-card { background:var(--bg-dk); padding:40px 32px; transition:background .3s; display:flex; flex-direction:column; }
+    .dienst-card p { flex:1; margin-bottom:28px; }
+    .dienst-card .btn { align-self:flex-start; margin-top:auto; }
     .dienst-card:hover { background:rgba(0,0,0,.15); }
     .dienst-card.soon { opacity:.65; }
     .dienst-badge { display:inline-block; font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-muted); border:1px solid rgba(203,190,174,.25); padding:3px 9px; margin-bottom:12px; }
@@ -59,21 +61,43 @@
     <div class="page-divider"></div>
   </div>
   <div class="diensten-grid">
-    <div class="dienst-card"><div class="dienst-title" data-t="d1-title">Privéchauffeur op maat</div><p data-t="d1-text"></p></div>
-    <div class="dienst-card"><div class="dienst-title" data-t="d2-title">BOB service</div><p data-t="d2-text"></p></div>
-    <div class="dienst-card"><div class="dienst-title" data-t="d3-title">Auto naar het buitenland</div><p data-t="d3-text"></p></div>
-    <div class="dienst-card"><div class="dienst-title" data-t="d4-title">Luchthaven transfer</div><p data-t="d4-text"></p></div>
-    <div class="dienst-card"><div class="dienst-title" data-t="d5-title">Lange afstand</div><p data-t="d5-text"></p></div>
-    <!-- Was service — nieuwe dienst op plek 6 -->
-    <div class="dienst-card"><div class="dienst-title" data-t="d7-title">Was service</div><p data-t="d7-text"></p></div>
-    <!-- Trailerservice — binnenkort, plek 7 -->
+    <div class="dienst-card">
+      <div class="dienst-title" data-t="d1-title">Privéchauffeur op maat</div>
+      <p data-t="d1-text"></p>
+      <a class="btn btn-outline" href="contact.html?dienst=Priv%C3%A9chauffeur+op+maat" data-t="ds-cta">Aanvragen</a>
+    </div>
+    <div class="dienst-card">
+      <div class="dienst-title" data-t="d2-title">BOB service</div>
+      <p data-t="d2-text"></p>
+      <a class="btn btn-outline" href="contact.html?dienst=BOB+service" data-t="ds-cta">Aanvragen</a>
+    </div>
+    <div class="dienst-card">
+      <div class="dienst-title" data-t="d3-title">Auto naar het buitenland</div>
+      <p data-t="d3-text"></p>
+      <a class="btn btn-outline" href="contact.html?dienst=Auto+naar+het+buitenland" data-t="ds-cta">Aanvragen</a>
+    </div>
+    <div class="dienst-card">
+      <div class="dienst-title" data-t="d4-title">Luchthaven transfer</div>
+      <p data-t="d4-text"></p>
+      <a class="btn btn-outline" href="contact.html?dienst=Luchthaven+transfer" data-t="ds-cta">Aanvragen</a>
+    </div>
+    <div class="dienst-card">
+      <div class="dienst-title" data-t="d5-title">Lange afstand</div>
+      <p data-t="d5-text"></p>
+      <a class="btn btn-outline" href="contact.html?dienst=Lange+afstand" data-t="ds-cta">Aanvragen</a>
+    </div>
+    <div class="dienst-card">
+      <div class="dienst-title" data-t="d7-title">Was service</div>
+      <p data-t="d7-text"></p>
+      <a class="btn btn-outline" href="contact.html?dienst=Was+service" data-t="ds-cta">Aanvragen</a>
+    </div>
+    <!-- Trailerservice — binnenkort, geen aanvraagknop -->
     <div class="dienst-card soon">
       <div class="dienst-badge" data-t="d6-badge">Binnenkort</div>
       <div class="dienst-title" data-t="d6-title">Trailerservice</div>
       <p data-t="d6-text"></p>
     </div>
   </div>
-  <a class="btn btn-primary" href="contact.html" data-t="ds-cta">Vrijblijvend Aanvragen</a>
 </main>
 
 <footer class="site-footer">&copy; 2026 Vlist &ndash; Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;<a href="voorwaarden.html#av" data-t="ft-av">Algemene Voorwaarden</a></footer>
