@@ -2,8 +2,12 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Persoonlijke chauffeursdiensten in het Gooi en heel Nederland. Vertrouwd in uw eigen auto." />
+  <meta name="theme-color" content="#1e1810" />
   <title>Vlist – Otten Chauffeursdiensten</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
@@ -11,145 +15,100 @@
   <style>
     body { overflow-x: hidden; }
 
-    /* ── HERO: 3 kolommen — foto | tekst | namen ── */
+    /* ── HERO: 2 kolommen — foto links, tekst rechts ── */
     .hero {
       display: grid;
-      grid-template-columns: 1fr 1.1fr 320px;
+      grid-template-columns: 1fr 1fr;
       min-height: 100vh;
     }
-
-    /* Linker hero foto */
     .hero-img { position: relative; overflow: hidden; }
     .hero-img img { width:100%; height:100%; object-fit:cover; filter:brightness(.52) saturate(.7); transition:transform 8s ease; display:block; }
     .hero-img:hover img { transform: scale(1.04); }
-    .hero-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to right, transparent 65%, var(--bg)); }
-
-    /* Midden tekst */
-    .hero-content { display:flex; flex-direction:column; justify-content:center; padding:120px 56px 60px 48px; }
-    .hero-eyebrow { font-size:.8rem; letter-spacing:.28em; color:var(--gold-muted); text-transform:uppercase; margin-bottom:24px; }
-    .hero-title { font-family:var(--serif); font-size:clamp(2.4rem,3.8vw,3.8rem); font-weight:400; line-height:1.12; color:var(--white); margin-bottom:24px; }
+    .hero-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to right, transparent 60%, var(--bg)); }
+    .hero-content { display:flex; flex-direction:column; justify-content:center; padding:120px 72px 60px 48px; }
+    .hero-eyebrow { font-size:.8rem; letter-spacing:.28em; color:var(--gold-muted); text-transform:uppercase; margin-bottom:16px; }
+    .hero-tagline { font-size:.78rem; letter-spacing:.18em; color:var(--gold); text-transform:uppercase; margin-bottom:28px; font-family:var(--body); }
+    .hero-title { font-family:var(--serif); font-size:clamp(2.6rem,4.5vw,4rem); font-weight:400; line-height:1.12; color:var(--white); margin-bottom:24px; }
     .hero-title em { font-style:italic; color:var(--gold); }
     .hero-line { width:48px; height:1px; background:var(--gold-muted); margin-bottom:28px; }
-    .hero-sub { font-size:.93rem; line-height:1.9; color:var(--text-sub); max-width:340px; margin-bottom:20px; }
+    .hero-sub { font-size:.95rem; line-height:1.9; color:var(--text-sub); max-width:380px; margin-bottom:20px; }
     .hero-own-car {
       display:inline-flex; align-items:center; gap:9px;
       font-size:.72rem; letter-spacing:.12em; text-transform:uppercase;
-      color:var(--gold); margin-bottom:40px;
+      color:var(--gold); margin-bottom:44px;
     }
     .hero-own-car::before { content:''; display:block; width:20px; height:1px; background:var(--gold); flex-shrink:0; }
     .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
 
-    /* Rechter namenkolom — foto's vullen de volledige hoogte */
-    .home-names {
+    /* ── ABOUT STRIP met foto's ── */
+    .home-about {
       display: flex;
-      flex-direction: column;
-      gap: 1px;
-      background: rgba(0,0,0,.2);
-      border-left: 1px solid rgba(203,190,174,.1);
+      align-items: stretch;
+      border-top: 1px solid rgba(203,190,174,.12);
+      background: var(--bg-dk);
     }
+    .home-about-text { flex:1; padding:52px 72px; }
+    .home-about-text .sec-label { font-size:.62rem; letter-spacing:.25em; color:var(--gold-muted); text-transform:uppercase; margin-bottom:18px; }
+    .home-about-text h2 { font-family:var(--serif); font-size:1.55rem; font-weight:400; color:var(--white); margin-bottom:14px; line-height:1.3; }
+    .home-about-text p { font-size:.9rem; color:var(--text-sub); line-height:1.9; max-width:500px; }
+
+    /* Foto-kaartjes in de about strip */
+    .home-names { display:flex; gap:1px; flex-shrink:0; }
     .name-card {
-      flex: 1;
+      width: 180px;
+      background: rgba(0,0,0,.18);
+      border-left: 1px solid rgba(203,190,174,.1);
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      min-height: 0;
     }
     .name-card-photo {
       width: 100%;
       flex: 1;
+      min-height: 160px;
       object-fit: cover;
       object-position: center top;
       display: block;
       filter: saturate(.85) brightness(.85);
       transition: transform 6s ease;
-      min-height: 0;
     }
     .name-card:hover .name-card-photo { transform: scale(1.04); }
-    .name-card-body {
-      padding: 14px 18px 18px;
-      text-align: center;
-      background: rgba(0,0,0,.25);
-      flex-shrink: 0;
-    }
-    .name-card-name { font-family:var(--serif); font-size:.92rem; color:var(--gold); margin-bottom:4px; }
-    .name-card-role { font-size:.62rem; letter-spacing:.13em; color:var(--gold-muted); text-transform:uppercase; line-height:1.5; }
+    .name-card-body { padding:14px 16px 18px; text-align:center; background:rgba(0,0,0,.2); flex-shrink:0; }
+    .name-card-name { font-family:var(--serif); font-size:.88rem; color:var(--gold); margin-bottom:4px; }
+    .name-card-role { font-size:.6rem; letter-spacing:.12em; color:var(--gold-muted); text-transform:uppercase; line-height:1.5; }
 
-    /* About strip — alleen tekst, namen zijn al zichtbaar in hero */
-    .home-about {
-      display: flex;
-      align-items: center;
-      border-top: 1px solid rgba(203,190,174,.12);
-      background: var(--bg-dk);
-      padding: 48px 72px;
+    @media (max-width:768px) {
+      .hero { grid-template-columns:1fr; min-height:auto; }
+      .hero-img { height:55vw; }
+      .hero-img::after { background:linear-gradient(to bottom, transparent 40%, var(--bg)); }
+      .hero-content { padding:80px 24px 44px; }
+      .home-about { flex-direction:column; }
+      .home-about-text { padding:40px 24px; }
+      .home-names { flex-direction:row; border-top:1px solid rgba(203,190,174,.1); }
+      .name-card { width:50%; border-left:none; }
+      .name-card-photo { min-height:120px; }
     }
-    .home-about-text .sec-label { font-size:.62rem; letter-spacing:.25em; color:var(--gold-muted); text-transform:uppercase; margin-bottom:18px; }
-    .home-about-text h2 { font-family:var(--serif); font-size:1.5rem; font-weight:400; color:var(--white); margin-bottom:14px; line-height:1.3; }
-    .home-about-text p { font-size:.9rem; color:var(--text-sub); line-height:1.9; max-width:680px; }
-
-    /* Tablet */
-    @media (max-width: 1024px) {
-      .hero { grid-template-columns: 1fr 1fr; }
-      .home-names {
-        display: none; /* verborgen op tablet — zit in about strip */
-      }
-      /* Toon namen als 2-koloms strip onder hero op tablet */
-      .home-names-strip {
-        display: flex !important;
-        gap: 1px;
-        background: rgba(0,0,0,.2);
-        border-top: 1px solid rgba(203,190,174,.1);
-      }
-      .home-about { flex-direction: column; align-items: flex-start; padding: 40px 40px; gap: 32px; }
-    }
-
-    /* Mobiel */
-    @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-img { height: 55vw; }
-      .hero-img::after { background: linear-gradient(to bottom, transparent 40%, var(--bg)); }
-      .hero-content { padding: 80px 24px 40px; }
-      .home-about { padding: 36px 24px; }
-      .home-names-strip .name-card { flex-direction: row; }
-      .home-names-strip .name-card-photo { width: 100px; height: 100px; flex: none; }
-    }
-    @media (max-width: 480px) { .hero-btns { flex-direction: column; } }
-
-    /* Strip voor tablet/mobiel */
-    .home-names-strip {
-      display: none;
-      border-top: 1px solid rgba(203,190,174,.1);
-    }
-    .home-names-strip .name-card {
-      flex: 1;
-      flex-direction: column;
-      min-height: auto;
-    }
-    .home-names-strip .name-card-photo {
-      width: 100%;
-      aspect-ratio: 1/1;
-      height: auto;
-      flex: none;
-    }
+    @media (max-width:480px) { .hero-btns { flex-direction:column; } }
   </style>
 </head>
 <body>
 
 <nav id="mainNav">
-  <div class="hamburger" id="hamburger" onclick="toggleSidebar()">
+  <div class="hamburger" id="hamburger" onclick="toggleSidebar()" aria-label="Menu" role="button">
     <span></span><span></span><span></span>
   </div>
   <a class="nav-logo" href="index.html">Vlist <span>&ndash;</span> Otten</a>
   <div class="nav-right">
-    <div class="lang-switch">
+    <div class="lang-switch" aria-label="Taal kiezen">
       <button class="lang-btn" data-lang="nl" onclick="setLang('nl')">NL</button>
-      <span class="sep">/</span>
+      <span class="sep" aria-hidden="true">/</span>
       <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
     </div>
   </div>
 </nav>
 
 <div class="sidebar-overlay" id="overlay" onclick="closeSidebar()"></div>
-<aside class="sidebar" id="sidebar">
+<aside class="sidebar" id="sidebar" aria-label="Navigatie">
   <span class="sidebar-label">Navigatie</span>
   <ul class="sidebar-links">
     <li><a href="index.html">Home</a></li>
@@ -166,15 +125,16 @@
   </div>
 </aside>
 
-<!-- HERO: foto | tekst | namen (3 kolommen desktop) -->
 <section style="display:flex;flex-direction:column;">
+
+  <!-- HERO -->
   <div class="hero">
     <div class="hero-img">
-      <!-- images/hero.jpg -->
       <img src="images/hero.jpg" alt="Vlist Otten Chauffeursdiensten" />
     </div>
     <div class="hero-content">
       <p class="hero-eyebrow" data-t="h-eyebrow">Persoonlijke Chauffeursdiensten</p>
+      <p class="hero-tagline" data-t="h-tagline">Vertrouwd in uw eigen auto</p>
       <h1 class="hero-title">
         <span data-t="h-t1">Uw reis,</span><br/>
         <em data-t="h-t2">onze zorg.</em>
@@ -187,49 +147,30 @@
         <a class="btn btn-outline" href="contact.html" data-t="h-btn2">Boeken</a>
       </div>
     </div>
+  </div>
 
-    <!-- Namen — zichtbaar als 3e kolom op desktop -->
+  <!-- ABOUT STRIP met foto's -->
+  <div class="home-about">
+    <div class="home-about-text">
+      <p class="sec-label" data-t="h-about-lbl">Over ons</p>
+      <h2 data-t="h-about-h2">Twee chauffeurs.<br/>Één standaard van professionaliteit.</h2>
+      <p data-t="h-about-p"></p>
+    </div>
     <div class="home-names">
       <div class="name-card">
-        <img class="name-card-photo" src="images/jip.jpg" alt="Jip van der Vlist" />
+        <img class="name-card-photo" src="images/jip.jpg" alt="Jip van der Vlist" loading="lazy" />
         <div class="name-card-body">
           <div class="name-card-name">Jip van der Vlist</div>
           <div class="name-card-role" data-t="h-role">Chauffeur &amp; Co-founder</div>
         </div>
       </div>
       <div class="name-card">
-        <img class="name-card-photo" src="images/cas.jpg" alt="Cas Otten" />
+        <img class="name-card-photo" src="images/cas.jpg" alt="Cas Otten" loading="lazy" />
         <div class="name-card-body">
           <div class="name-card-name">Cas Otten</div>
           <div class="name-card-role" data-t="h-role">Chauffeur &amp; Co-founder</div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Namen strip — alleen zichtbaar op tablet/mobiel (<1024px) -->
-  <div class="home-names-strip">
-    <div class="name-card">
-      <img class="name-card-photo" src="images/jip.jpg" alt="Jip van der Vlist" />
-      <div class="name-card-body">
-        <div class="name-card-name">Jip van der Vlist</div>
-        <div class="name-card-role" data-t="h-role">Chauffeur &amp; Co-founder</div>
-      </div>
-    </div>
-    <div class="name-card">
-      <img class="name-card-photo" src="images/cas.jpg" alt="Cas Otten" />
-      <div class="name-card-body">
-        <div class="name-card-name">Cas Otten</div>
-        <div class="name-card-role" data-t="h-role">Chauffeur &amp; Co-founder</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="home-about">
-    <div class="home-about-text">
-      <p class="sec-label" data-t="h-about-lbl">Over ons</p>
-      <h2 data-t="h-about-h2">Twee chauffeurs.<br/>Één standaard van professionaliteit.</h2>
-      <p data-t="h-about-p"></p>
     </div>
   </div>
 
@@ -239,7 +180,7 @@
   </footer>
 </section>
 
-<div class="cookie-bar" id="cookieBar">
+<div class="cookie-bar" id="cookieBar" role="dialog" aria-label="Cookie melding">
   <p class="cookie-text">
     <span data-t="ck-txt"></span>
     <a href="voorwaarden.html" data-t="ck-link"></a>.
