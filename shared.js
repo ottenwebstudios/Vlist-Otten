@@ -8,6 +8,7 @@ const LANG = {
 
     // HOME
     'h-eyebrow': 'Persoonlijke Chauffeursdiensten',
+    'h-tagline': 'Vertrouwd in uw eigen auto',
     'h-t1': 'Uw reis,', 'h-t2': 'onze zorg.',
     'h-sub': 'Vlist – Otten biedt u comfort en vertrouwde service op maat — altijd in uw eigen auto. Van luchthaven-service tot uw auto op uw vakantiebestemming.',
     'h-own-car': 'U rijdt altijd mee in uw eigen auto.',
@@ -37,11 +38,14 @@ const LANG = {
     'd4-title': 'Luchthaven transfer', 'd4-text': 'Stressvrij naar Schiphol, Rotterdam of een ander vliegveld — in uw eigen auto. Wij volgen uw vlucht en zijn er altijd op tijd.',
     'd5-title': 'Lange afstand', 'd5-text': "Van Amsterdam naar Brussel of Parijs — wij rijden ook internationale ritten in uw eigen auto voor klanten die comfort verkiezen boven vliegen. Dranken en versnaperingen op aanvraag.",
     'd6-title': 'Trailerservice', 'd6-text': 'Wilt u uw auto en boot veilig laten vervoeren, dan kan dat binnenkort. Neem vrijblijvend contact met ons op voor meer informatie.',
-    'd6-badge': 'Binnenkort', 'ds-cta': 'Vrijblijvend Aanvragen',
+    'd6-badge': 'Binnenkort',
+    'd7-title': 'Was service', 'd7-text': 'Los of tijdens de rit uw auto laten wassen. Professioneel en op aanvraag in te plannen.',
+    'ds-cta': 'Vrijblijvend Aanvragen',
 
     // TARIEVEN
     'tr-ey': 'Transparante prijzen', 'tr-t': 'Tarieven',
     'tr-own-car': 'Alle ritten worden uitgevoerd in uw eigen auto.',
+    'tr-btw': 'Alle prijzen zijn exclusief BTW.',
     'tr-poa': 'Op aanvraag',
     't1-name': 'Privéchauffeur op maat', 't1-price': '€ 29,95 p/u', 't1-note': 'Min. afname 3 uur · daarna € 14,95 p/u extra',
     't1-f1': 'In uw eigen auto', 't1-f2': 'Meerdere afspraken mogelijk', 't1-f3': 'Dranken & versnaperingen op aanvraag',
@@ -50,7 +54,8 @@ const LANG = {
     't4-name': 'Luchthaven transfer', 't4-f1': 'In uw eigen auto', 't4-f2': 'Vluchtvolgservice', 't4-f3': 'Altijd op tijd',
     't5-name': 'Lange afstand', 't5-price': '€ 15,– p/u', 't5-note': 'Excl. BTW',
     't5-f1': 'In uw eigen auto', 't5-f2': 'Amsterdam – Brussel – Parijs', 't5-f3': 'Dranken & versnaperingen op aanvraag',
-    't6-name': 'Trailerservice', 't6-badge': 'Binnenkort', 't6-f1': 'Auto & boot vervoer', 't6-f2': 'Veilig & verzekerd', 't6-f3': 'Neem contact op voor info',
+    't6-name': 'Trailerservice', 't6-badge': 'Binnenkort',
+    't7-name': 'Was service', 't7-f1': 'Los of tijdens de rit', 't7-f2': 'Uw auto professioneel gewassen', 't7-f3': 'Op aanvraag in te plannen', 't6-f1': 'Auto & boot vervoer', 't6-f2': 'Veilig & verzekerd', 't6-f3': 'Neem contact op voor info',
     'tr-note': 'Dranken en versnaperingen kunnen bij alle diensten worden aangevraagd via het boekingsformulier. Prijzen zijn inclusief BTW tenzij anders vermeld.',
     'tr-cta': 'Aanvragen',
 
@@ -59,7 +64,7 @@ const LANG = {
     'ct-h3': 'Bereikbaarheid',
     'ct-intro': 'Voor boekingen, offertes of vragen kunt u ons direct bereiken.',
     'ct-el': 'Email', 'ct-tl': 'Telefoon', 'ct-al': 'Beschikbaarheid',
-    'ct-av': 'Maandag t/m zondag<br/>07:00 – 00:00',
+    'ct-av': '24/7 bereikbaar',
     'f-nl': 'Uw naam', 'f-el': 'E-mailadres', 'f-tl': 'Telefoonnummer',
     'f-al': 'Adres / vertrekpunt', 'f-dl': 'Type dienst',
     'f-own-car-lbl': 'Merk & type van uw auto',
@@ -93,6 +98,7 @@ const LANG = {
     sidebar_sub: 'KvK: 99913925 &nbsp;&middot;&nbsp; info@vlistotten.nl',
 
     'h-eyebrow': 'Personal Chauffeur Services',
+    'h-tagline': 'Trusted in your own car',
     'h-t1': 'Your journey,', 'h-t2': 'our care.',
     'h-sub': 'Vlist – Otten offers tailored comfort and trusted service — always in your own car. From airport transfers to your own car at your holiday destination.',
     'h-own-car': 'You always travel in your own car.',
@@ -120,10 +126,13 @@ const LANG = {
     'd4-title': 'Airport transfer', 'd4-text': 'Stress-free travel to Schiphol, Rotterdam or any other airport — in your own car. We track your flight and are always on time.',
     'd5-title': 'Long distance', 'd5-text': 'From Amsterdam to Brussels or Paris — we drive international routes in your own car for clients who prefer comfort over flying. Drinks and refreshments on request.',
     'd6-title': 'Trailer service', 'd6-text': 'Want your car and boat transported safely? Coming soon. Feel free to contact us for more information.',
-    'd6-badge': 'Coming soon', 'ds-cta': 'Request a Quote',
+    'd6-badge': 'Coming soon',
+    'd7-title': 'Car wash service', 'd7-text': 'Have your car washed separately or during your ride. Professional and bookable on request.',
+    'ds-cta': 'Request a Quote',
 
     'tr-ey': 'Transparent pricing', 'tr-t': 'Rates',
     'tr-own-car': 'All rides are carried out in your own car.',
+    'tr-btw': 'All prices are exclusive of VAT.',
     'tr-poa': 'On request',
     't1-name': 'Private chauffeur on demand', 't1-price': '€ 29.95 /hr', 't1-note': 'Min. 3 hours · then € 14.95 /hr extra',
     't1-f1': 'In your own car', 't1-f2': 'Multiple appointments possible', 't1-f3': 'Drinks & refreshments on request',
@@ -132,7 +141,8 @@ const LANG = {
     't4-name': 'Airport transfer', 't4-f1': 'In your own car', 't4-f2': 'Flight tracking service', 't4-f3': 'Always on time',
     't5-name': 'Long distance', 't5-price': '€ 15.– /hr', 't5-note': 'Excl. VAT',
     't5-f1': 'In your own car', 't5-f2': 'Amsterdam – Brussels – Paris', 't5-f3': 'Drinks & refreshments on request',
-    't6-name': 'Trailer service', 't6-badge': 'Coming soon', 't6-f1': 'Car & boat transport', 't6-f2': 'Safe & insured', 't6-f3': 'Contact us for info',
+    't6-name': 'Trailer service', 't6-badge': 'Coming soon',
+    't7-name': 'Car wash service', 't7-f1': 'Separately or during your ride', 't7-f2': 'Professionally washed', 't7-f3': 'Bookable on request', 't6-f1': 'Car & boat transport', 't6-f2': 'Safe & insured', 't6-f3': 'Contact us for info',
     'tr-note': 'Drinks and refreshments can be requested for all services via the booking form. Prices include VAT unless stated otherwise.',
     'tr-cta': 'Request',
 
@@ -140,7 +150,7 @@ const LANG = {
     'ct-h3': 'Availability',
     'ct-intro': 'For bookings, quotes or questions you can reach us directly.',
     'ct-el': 'Email', 'ct-tl': 'Phone', 'ct-al': 'Availability',
-    'ct-av': 'Monday through Sunday<br/>07:00 – 00:00',
+    'ct-av': 'Available 24/7',
     'f-nl': 'Your name', 'f-el': 'Email address', 'f-tl': 'Phone number',
     'f-al': 'Address / departure point', 'f-dl': 'Type of service',
     'f-own-car-lbl': 'Make & model of your car',
@@ -208,23 +218,45 @@ function applyTranslations() {
 
 /* ── SIDEBAR ── */
 function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
-  document.getElementById('overlay').classList.toggle('open');
-  document.getElementById('hamburger').classList.toggle('open');
+  const isOpen = document.getElementById('sidebar').classList.contains('open');
+  if (isOpen) { closeSidebar(); } else { openSidebar(); }
+}
+function openSidebar() {
+  document.getElementById('sidebar').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('hamburger').classList.add('open');
+  // Trap scroll on body while sidebar open
+  document.body.style.overflow = 'hidden';
 }
 function closeSidebar() {
   document.getElementById('sidebar').classList.remove('open');
   document.getElementById('overlay').classList.remove('open');
   document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow = '';
 }
+// Close sidebar on Escape key
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeSidebar();
+});
+// Close sidebar on swipe-left
+(function() {
+  let startX = 0;
+  document.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (dx < -60 && document.getElementById('sidebar').classList.contains('open')) {
+      closeSidebar();
+    }
+  }, { passive: true });
+})();
 
 /* ── SCROLL NAV ── */
 window.addEventListener('scroll', () => {
   const nav = document.getElementById('mainNav');
   if (nav) nav.classList.toggle('scrolled', window.scrollY > 40);
-});
+}, { passive: true });
 
-/* ── FORM ── */
+/* ── FORM (fallback for non-async forms) ── */
 function handleForm(e) {
   e.preventDefault();
   const msg = e.target.querySelector('.form-success');
@@ -243,11 +275,13 @@ function initCookies() {
 }
 function acceptCookies() {
   localStorage.setItem('vo_cookie_pref', 'accepted');
-  document.getElementById('cookieBar').classList.remove('visible');
+  const bar = document.getElementById('cookieBar');
+  if (bar) bar.classList.remove('visible');
 }
 function declineCookies() {
   localStorage.setItem('vo_cookie_pref', 'declined');
-  document.getElementById('cookieBar').classList.remove('visible');
+  const bar = document.getElementById('cookieBar');
+  if (bar) bar.classList.remove('visible');
 }
 
 /* ── ACTIVE NAV LINK ── */
@@ -265,4 +299,6 @@ document.addEventListener('DOMContentLoaded', () => {
   applyTranslations();
   setActiveNav();
   initCookies();
+  // Trigger scroll check on load (for pages that start scrolled)
+  window.dispatchEvent(new Event('scroll'));
 });
