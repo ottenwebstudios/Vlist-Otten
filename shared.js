@@ -37,7 +37,7 @@ const LANG = {
     'd3-title': 'Auto naar het buitenland', 'd3-text': 'Gaat u binnenkort op vakantie? Wij rijden uw eigen auto naar de bestemming zodat u daar direct over uw vertrouwde auto beschikt.',
     'd4-title': 'Luchthaven transfer', 'd4-text': 'Stressvrij naar Schiphol, Rotterdam of een ander vliegveld — in uw eigen auto. Wij volgen uw vlucht en zijn er altijd op tijd.',
     'd5-title': 'Lange afstand', 'd5-text': "Van Amsterdam naar Brussel of Parijs — wij rijden ook internationale ritten in uw eigen auto voor klanten die comfort verkiezen boven vliegen. Dranken en versnaperingen op aanvraag.",
-    'd6-title': 'Trailerservice', 'd6-text': 'Wilt u uw auto en boot veilig laten vervoeren, dan kan dat binnenkort. Neem vrijblijvend contact met ons op voor meer informatie.',
+    'd6-title': 'Trailerservice', 'd6-text': 'Wilt u uw auto en boot veilig laten vervoeren, dan kan dat. Neem vrijblijvend contact met ons op voor meer informatie.',
     'd6-badge': 'Binnenkort',
     'd7-title': 'Was service', 'd7-text': 'Los of tijdens de rit uw auto laten wassen. Professioneel en op aanvraag in te plannen.',
     'ds-cta': 'Vrijblijvend Aanvragen',
