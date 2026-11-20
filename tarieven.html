@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Bekijk de tarieven van Vlist – Otten Chauffeursdiensten. Transparante prijzen, altijd in uw eigen auto." />
-  <meta name="theme-color" content="#1e1810" />
+  <meta name="theme-color" content="#443822" />
   <title>Tarieven – Vlist Otten</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
@@ -14,28 +14,21 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     body { padding-top: 80px; }
-    .own-car-notice {
-      display:inline-flex; align-items:center; gap:10px;
-      font-size:.75rem; letter-spacing:.14em; text-transform:uppercase;
-      color:var(--gold); margin-bottom:12px;
-    }
-    .own-car-notice::before { content:''; display:block; width:24px; height:1px; background:var(--gold); }
-    .btw-notice {
-      font-size:.75rem; letter-spacing:.1em; text-transform:uppercase;
-      color:var(--text-muted); margin-bottom:44px; display:block;
-    }
-    .tarieven-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(0,0,0,.25); border:1px solid rgba(203,190,174,.08); margin-bottom:48px; }
+    .own-car-notice { display:inline-flex; align-items:center; gap:10px; font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+    .own-car-notice::before { content:''; display:block; width:24px; height:1px; background:var(--accent); }
+    .btw-notice { font-size:.76rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:44px; display:block; }
+    .tarieven-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(0,0,0,.2); border:1px solid rgba(241,226,200,.1); margin-bottom:40px; }
     .tarief-card { background:var(--bg-dk); padding:40px 32px; display:flex; flex-direction:column; transition:background .3s; }
-    .tarief-card:hover { background:rgba(0,0,0,.18); }
-    .tarief-badge { display:inline-block; font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-muted); border:1px solid rgba(203,190,174,.25); padding:3px 9px; margin-bottom:12px; align-self:flex-start; }
+    .tarief-card:hover { background:rgba(0,0,0,.12); }
     .tarief-name { font-family:var(--serif); font-size:1.25rem; color:var(--gold); margin-bottom:14px; font-weight:400; }
+    .tarief-card.card-featured .tarief-name { padding-right:70px; }
     .tarief-price { font-family:var(--serif); font-size:1.8rem; color:var(--white); line-height:1.1; margin-bottom:4px; }
     .tarief-price.poa { font-size:1rem; color:var(--gold-muted); font-family:var(--body); }
-    .tarief-price-note { font-size:.72rem; color:var(--gold-muted); letter-spacing:.08em; margin-bottom:24px; min-height:1.2em; }
+    .tarief-price-note { font-size:.74rem; color:var(--gold-muted); letter-spacing:.06em; line-height:1.6; margin-bottom:24px; min-height:1.2em; }
     .tarief-features { list-style:none; flex:1; margin-bottom:32px; }
-    .tarief-features li { padding:10px 0; border-bottom:1px solid rgba(203,190,174,.07); font-size:.84rem; color:var(--text-sub); line-height:1.6; }
-    .tarief-features li::before { content:'—'; color:var(--gold-muted); margin-right:10px; }
-    .tarief-note { font-size:.78rem; color:var(--text-muted); line-height:1.8; border-top:1px solid rgba(203,190,174,.08); padding-top:24px; }
+    .tarief-features li { padding:10px 0; border-bottom:1px solid rgba(241,226,200,.1); font-size:.86rem; color:var(--text-sub); line-height:1.6; }
+    .tarief-features li::before { content:'—'; color:var(--accent); margin-right:10px; }
+    .tarief-note { font-size:.8rem; color:var(--text-muted); line-height:1.8; border-top:1px solid rgba(241,226,200,.12); padding-top:24px; }
     @media (max-width:900px) { .tarieven-grid { grid-template-columns:repeat(2,1fr); } }
     @media (max-width:520px) { .tarieven-grid { grid-template-columns:1fr; } }
   </style>
@@ -43,16 +36,19 @@
 <body>
 
 <nav id="mainNav">
-  <div class="hamburger" id="hamburger" onclick="toggleSidebar()" aria-label="Menu" role="button"><span></span><span></span><span></span></div>
+  <div class="hamburger" id="hamburger" onclick="toggleSidebar()" aria-label="Menu" role="button">
+    <span></span><span></span><span></span>
+  </div>
   <a class="nav-logo" href="index.html">Vlist <span>&ndash;</span> Otten</a>
   <div class="nav-right">
-    <div class="lang-switch">
+    <div class="lang-switch" aria-label="Taal kiezen">
       <button class="lang-btn" data-lang="nl" onclick="setLang('nl')">NL</button>
-      <span class="sep">/</span>
+      <span class="sep" aria-hidden="true">/</span>
       <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
     </div>
   </div>
 </nav>
+
 <div class="sidebar-overlay" id="overlay" onclick="closeSidebar()"></div>
 <aside class="sidebar" id="sidebar" aria-label="Navigatie">
   <span class="sidebar-label">Navigatie</span>
@@ -64,7 +60,11 @@
     <li><a href="contact.html">Boeken &amp; Contact</a></li>
     <li><a href="voorwaarden.html">Voorwaarden</a></li>
   </ul>
-  <div class="sidebar-footer">Vlist &ndash; Otten Chauffeursdiensten<br><span class="sidebar-sub"></span><br>+31 6 27 31 32 03 / +31 6 15 66 71 65</div>
+  <div class="sidebar-footer">
+    Vlist &ndash; Otten Chauffeursdiensten<br>
+    <span class="sidebar-sub"></span><br>
+    +31 6 27 31 32 03 / +31 6 15 66 71 65
+  </div>
 </aside>
 
 <main class="page-inner">
@@ -79,7 +79,6 @@
 
   <div class="tarieven-grid">
 
-    <!-- 1: Privéchauffeur -->
     <div class="tarief-card">
       <div class="tarief-name" data-t="t1-name">Privéchauffeur op maat</div>
       <div class="tarief-price" data-t="t1-price">€ 29,95 p/u</div>
@@ -92,11 +91,10 @@
       <a class="btn btn-primary" href="contact.html?dienst=Priv%C3%A9chauffeur+op+maat" data-t="tr-cta">Aanvragen</a>
     </div>
 
-    <!-- 2: BOB -->
     <div class="tarief-card">
       <div class="tarief-name" data-t="t2-name">BOB service</div>
-      <div class="tarief-price poa" data-t="tr-poa">Op aanvraag</div>
-      <div class="tarief-price-note">&nbsp;</div>
+      <div class="tarief-price" data-t="p-hourly">€ 29,95 p/u</div>
+      <div class="tarief-price-note" data-t="p-min3">Min. afname 3 uur</div>
       <ul class="tarief-features">
         <li data-t="t2-f1">In uw eigen auto</li>
         <li data-t="t2-f2">Avonden, gala's &amp; concerten</li>
@@ -105,7 +103,31 @@
       <a class="btn btn-outline" href="contact.html?dienst=BOB+service" data-t="tr-cta">Aanvragen</a>
     </div>
 
-    <!-- 3: Buitenland -->
+    <div class="tarief-card">
+      <div class="tarief-name" data-t="t4-name">Luchthaven transfer</div>
+      <div class="tarief-price" data-t="a-price">€ 140</div>
+      <div class="tarief-price-note" data-t="a-note">Het Gooi – Schiphol, heen en terug<br>Enkel heen of terug: € 89,85</div>
+      <ul class="tarief-features">
+        <li data-t="t4-f1">In uw eigen auto</li>
+        <li data-t="t4-f2">Vluchtvolgservice</li>
+        <li data-t="t4-f3">Altijd op tijd</li>
+      </ul>
+      <a class="btn btn-outline" href="contact.html?dienst=Luchthaven+transfer" data-t="tr-cta">Aanvragen</a>
+    </div>
+
+    <div class="tarief-card card-featured">
+    <span class="badge-new" data-t="new">Nieuw!</span>
+      <div class="tarief-name" data-t="t6-name">Trailerservice</div>
+      <div class="tarief-price" data-t="p-hourly">€ 29,95 p/u</div>
+      <div class="tarief-price-note" data-t="p-min3">Min. afname 3 uur</div>
+      <ul class="tarief-features">
+        <li data-t="t6-f1">Auto &amp; boot vervoer</li>
+        <li data-t="t6-f2">Veilig &amp; verzekerd</li>
+        <li data-t="t6-f3">Neem contact op voor info</li>
+      </ul>
+      <a class="btn btn-primary" href="contact.html?dienst=Trailerservice" data-t="tr-cta">Aanvragen</a>
+    </div>
+
     <div class="tarief-card">
       <div class="tarief-name" data-t="t3-name">Auto naar het buitenland</div>
       <div class="tarief-price poa" data-t="tr-poa">Op aanvraag</div>
@@ -118,20 +140,6 @@
       <a class="btn btn-outline" href="contact.html?dienst=Auto+naar+het+buitenland" data-t="tr-cta">Aanvragen</a>
     </div>
 
-    <!-- 4: Luchthaven -->
-    <div class="tarief-card">
-      <div class="tarief-name" data-t="t4-name">Luchthaven transfer</div>
-      <div class="tarief-price poa" data-t="tr-poa">Op aanvraag</div>
-      <div class="tarief-price-note">&nbsp;</div>
-      <ul class="tarief-features">
-        <li data-t="t4-f1">In uw eigen auto</li>
-        <li data-t="t4-f2">Vluchtvolgservice</li>
-        <li data-t="t4-f3">Altijd op tijd</li>
-      </ul>
-      <a class="btn btn-outline" href="contact.html?dienst=Luchthaven+transfer" data-t="tr-cta">Aanvragen</a>
-    </div>
-
-    <!-- 5: Lange afstand -->
     <div class="tarief-card">
       <div class="tarief-name" data-t="t5-name">Lange afstand</div>
       <div class="tarief-price poa" data-t="tr-poa">Op aanvraag</div>
@@ -144,9 +152,8 @@
       <a class="btn btn-outline" href="contact.html?dienst=Lange+afstand" data-t="tr-cta">Aanvragen</a>
     </div>
 
-    <!-- 6: Was service -->
     <div class="tarief-card">
-      <div class="tarief-name" data-t="t7-name">Was service</div>
+      <div class="tarief-name" data-t="t7-name">Wasservice</div>
       <div class="tarief-price poa" data-t="tr-poa">Op aanvraag</div>
       <div class="tarief-price-note">&nbsp;</div>
       <ul class="tarief-features">
@@ -154,29 +161,35 @@
         <li data-t="t7-f2">Uw auto professioneel gewassen</li>
         <li data-t="t7-f3">Op aanvraag in te plannen</li>
       </ul>
-      <a class="btn btn-outline" href="contact.html?dienst=Was+service" data-t="tr-cta">Aanvragen</a>
-    </div>
-
-    <!-- 7: Trailerservice — nu beschikbaar -->
-    <div class="tarief-card">
-      <div class="tarief-name" data-t="t6-name">Trailerservice</div>
-      <div class="tarief-price poa" data-t="tr-poa">Op aanvraag</div>
-      <div class="tarief-price-note">&nbsp;</div>
-      <ul class="tarief-features">
-        <li data-t="t6-f1">Auto &amp; boot vervoer</li>
-        <li data-t="t6-f2">Veilig &amp; verzekerd</li>
-        <li data-t="t6-f3">Neem contact op voor info</li>
-      </ul>
-      <a class="btn btn-outline" href="contact.html?dienst=Trailerservice" data-t="tr-cta">Aanvragen</a>
+      <a class="btn btn-outline" href="contact.html?dienst=Wasservice" data-t="tr-cta">Aanvragen</a>
     </div>
 
   </div>
+
+  <div class="info-grid">
+    <div class="info-box">
+      <h3 data-t="night-t">Nachttarief</h3>
+      <p data-t="night-p">€ 35 per uur tussen 01:00 en 06:00.</p>
+    </div>
+    <div class="info-box">
+      <h3 data-t="canc-t">Annulering</h3>
+      <p data-t="canc-p">Bij annulering binnen 24 uur brengen wij 50% van de kosten in rekening, en binnen 12 uur 100% van het afgesproken bedrag.</p>
+    </div>
+  </div>
+
   <p class="tarief-note" data-t="tr-note">Dranken en versnaperingen kunnen bij alle diensten worden aangevraagd via het boekingsformulier. Alle prijzen zijn exclusief BTW.</p>
 </main>
 
-<footer class="site-footer">&copy; 2026 Vlist &ndash; Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;<a href="voorwaarden.html#av" data-t="ft-av">Algemene Voorwaarden</a></footer>
+<footer class="site-footer">
+  &copy; 2026 Vlist &ndash; Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;
+  <a href="voorwaarden.html#av" data-t="ft-av">Algemene Voorwaarden</a>
+</footer>
+
 <div class="cookie-bar" id="cookieBar" role="dialog" aria-label="Cookie melding">
-  <p class="cookie-text"><span data-t="ck-txt"></span><a href="voorwaarden.html" data-t="ck-link"></a>.</p>
+  <p class="cookie-text">
+    <span data-t="ck-txt"></span>
+    <a href="voorwaarden.html" data-t="ck-link"></a>.
+  </p>
   <div class="cookie-buttons">
     <button class="cookie-btn cookie-decline" onclick="declineCookies()" data-t="ck-dec"></button>
     <button class="cookie-btn cookie-accept" onclick="acceptCookies()" data-t="ck-acc"></button>
