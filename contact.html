@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Neem contact op met Vlist – Otten voor een boeking of offerte." />
-  <meta name="theme-color" content="#1e1810" />
+  <meta name="theme-color" content="#443822" />
   <title>Contact – Vlist Otten</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
@@ -16,11 +16,11 @@
     body { padding-top: 80px; }
     .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 72px; align-items: start; }
     .contact-info h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--gold); margin-bottom: 16px; }
-    .contact-info p { font-size: .88rem; color: var(--text-sub); line-height: 2.1; }
-    .contact-info a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(203,190,174,.25); transition: color .2s; }
-    .contact-info a:hover { color: var(--neutral); }
-    .c-label { display: block; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-muted); margin-top: 24px; margin-bottom: 6px; }
-    .contact-sep { margin-top: 32px; height: 1px; background: rgba(203,190,174,.1); }
+    .contact-info p { font-size: .9rem; color: var(--text-sub); line-height: 2.1; }
+    .contact-info a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(241,226,200,.35); transition: color .2s; }
+    .contact-info a:hover { color: var(--accent); }
+    .c-label { display: block; font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-top: 24px; margin-bottom: 6px; }
+    .contact-sep { margin-top: 32px; height: 1px; background: rgba(241,226,200,.15); }
     .btn-loading { opacity: .6; pointer-events: none; }
     @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
   </style>
@@ -33,9 +33,9 @@
   </div>
   <a class="nav-logo" href="index.html">Vlist <span>&ndash;</span> Otten</a>
   <div class="nav-right">
-    <div class="lang-switch">
+    <div class="lang-switch" aria-label="Taal kiezen">
       <button class="lang-btn" data-lang="nl" onclick="setLang('nl')">NL</button>
-      <span class="sep">/</span>
+      <span class="sep" aria-hidden="true">/</span>
       <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
     </div>
   </div>
@@ -87,7 +87,7 @@
       </p>
 
       <span class="c-label" data-t="ct-al">Beschikbaarheid</span>
-      <p data-t="ct-av">24/7 bereikbaar</p>
+      <p data-t="ct-av">Wij proberen 24/7 bereikbaar te zijn.</p>
 
       <div class="contact-sep"></div>
     </div>
@@ -123,11 +123,11 @@
           <option value="">— Selecteer een dienst —</option>
           <option value="Privechauffeur op maat">Privéchauffeur op maat</option>
           <option value="BOB service">BOB service</option>
-          <option value="Auto naar het buitenland">Auto naar het buitenland</option>
           <option value="Luchthaven transfer">Luchthaven transfer</option>
-          <option value="Lange afstand">Lange afstand</option>
-          <option value="Was service">Was service</option>
           <option value="Trailerservice">Trailerservice</option>
+          <option value="Auto naar het buitenland">Auto naar het buitenland</option>
+          <option value="Lange afstand">Lange afstand</option>
+          <option value="Wasservice">Wasservice</option>
           <option value="Anders">Anders</option>
         </select>
       </div>
@@ -140,13 +140,11 @@
         <span id="btnText" data-t="f-sub">Versturen</span>
       </button>
 
-      <!-- Succes melding -->
-      <div id="formSuccess" style="display:none; margin-top:20px; padding:18px 22px; background:rgba(203,190,174,.1); border:1px solid rgba(203,190,174,.25); font-size:.88rem; color:var(--text-sub); line-height:1.7;">
+      <div id="formSuccess" style="display:none; margin-top:20px; padding:18px 22px; background:rgba(241,226,200,.12); border:1px solid rgba(241,226,200,.3); font-size:.88rem; color:var(--text-sub); line-height:1.7;">
         <span data-t="f-ok">Bedankt! Wij nemen zo snel mogelijk contact op.</span>
       </div>
 
-      <!-- Fout melding -->
-      <div id="formError" style="display:none; margin-top:20px; padding:18px 22px; background:rgba(180,50,50,.1); border:1px solid rgba(180,50,50,.3); font-size:.86rem; color:#e8a0a0; line-height:1.7;">
+      <div id="formError" style="display:none; margin-top:20px; padding:18px 22px; background:rgba(180,50,50,.18); border:1px solid rgba(220,120,120,.5); font-size:.86rem; color:#ffd2d2; line-height:1.7;">
         Er is iets misgegaan. Stuur ons direct een e-mail:
         <strong><a href="mailto:info@vlistotten.nl" style="color:var(--gold);">info&#64;vlistotten.nl</a></strong>
       </div>
@@ -170,7 +168,6 @@
     <button class="cookie-btn cookie-accept" onclick="acceptCookies()" data-t="ck-acc"></button>
   </div>
 </div>
-
 <script src="shared.js"></script>
 <script>
 // Pre-select dienst from URL ?dienst= parameter
@@ -192,31 +189,18 @@
 // Form submit via Web3Forms
 document.getElementById('contactForm').addEventListener('submit', async function (e) {
   e.preventDefault();
-
   const form = this;
   const btn = document.getElementById('submitBtn');
   const btnText = document.getElementById('btnText');
   const successBox = document.getElementById('formSuccess');
   const errorBox = document.getElementById('formError');
-
-  // Reset
   successBox.style.display = 'none';
   errorBox.style.display = 'none';
-
-  // Loading state
   btn.classList.add('btn-loading');
   btnText.textContent = '...';
-
   try {
-    const formData = new FormData(form);
-
-    const response = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData
-    });
-
+    const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) });
     const result = await response.json();
-
     if (result.success) {
       successBox.style.display = 'block';
       form.reset();
@@ -228,8 +212,6 @@ document.getElementById('contactForm').addEventListener('submit', async function
     console.error('Fetch error:', err);
     errorBox.style.display = 'block';
   }
-
-  // Reset button
   btn.classList.remove('btn-loading');
   btnText.textContent = 'Versturen';
 });
