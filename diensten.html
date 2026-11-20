@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Privéchauffeur, BOB service, luchthaven transfer, auto naar het buitenland, was service en meer." />
-  <meta name="theme-color" content="#1e1810" />
+  <meta name="description" content="Privéchauffeur, BOB service, luchthaven transfer, trailerservice, auto naar het buitenland, wasservice en meer." />
+  <meta name="theme-color" content="#443822" />
   <title>Diensten – Vlist Otten</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
@@ -14,14 +14,13 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     body { padding-top: 80px; }
-    .diensten-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(0,0,0,.25); border:1px solid rgba(203,190,174,.08); margin-bottom:48px; }
+    .diensten-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(0,0,0,.2); border:1px solid rgba(241,226,200,.1); margin-bottom:48px; }
     .dienst-card { background:var(--bg-dk); padding:40px 32px; transition:background .3s; display:flex; flex-direction:column; }
-    .dienst-card p { flex:1; margin-bottom:28px; }
+    .dienst-card p { flex:1; margin-bottom:28px; font-size:.88rem; color:var(--text-sub); line-height:1.85; }
     .dienst-card .btn { align-self:flex-start; margin-top:auto; }
-    .dienst-card:hover { background:rgba(0,0,0,.15); }
-    .dienst-badge { display:inline-block; font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-muted); border:1px solid rgba(203,190,174,.25); padding:3px 9px; margin-bottom:12px; }
+    .dienst-card:hover { background:rgba(0,0,0,.12); }
     .dienst-title { font-family:var(--serif); font-size:1.2rem; color:var(--gold); margin-bottom:14px; }
-    .dienst-card p { font-size:.86rem; color:var(--text-sub); line-height:1.85; }
+    .dienst-card.card-featured .dienst-title { padding-right:70px; }
     @media (max-width:900px) { .diensten-grid { grid-template-columns:repeat(2,1fr); } }
     @media (max-width:520px) { .diensten-grid { grid-template-columns:1fr; } }
   </style>
@@ -29,16 +28,19 @@
 <body>
 
 <nav id="mainNav">
-  <div class="hamburger" id="hamburger" onclick="toggleSidebar()" aria-label="Menu" role="button"><span></span><span></span><span></span></div>
+  <div class="hamburger" id="hamburger" onclick="toggleSidebar()" aria-label="Menu" role="button">
+    <span></span><span></span><span></span>
+  </div>
   <a class="nav-logo" href="index.html">Vlist <span>&ndash;</span> Otten</a>
   <div class="nav-right">
-    <div class="lang-switch">
+    <div class="lang-switch" aria-label="Taal kiezen">
       <button class="lang-btn" data-lang="nl" onclick="setLang('nl')">NL</button>
-      <span class="sep">/</span>
+      <span class="sep" aria-hidden="true">/</span>
       <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
     </div>
   </div>
 </nav>
+
 <div class="sidebar-overlay" id="overlay" onclick="closeSidebar()"></div>
 <aside class="sidebar" id="sidebar" aria-label="Navigatie">
   <span class="sidebar-label">Navigatie</span>
@@ -50,7 +52,11 @@
     <li><a href="contact.html">Boeken &amp; Contact</a></li>
     <li><a href="voorwaarden.html">Voorwaarden</a></li>
   </ul>
-  <div class="sidebar-footer">Vlist &ndash; Otten Chauffeursdiensten<br><span class="sidebar-sub"></span><br>+31 6 27 31 32 03 / +31 6 15 66 71 65</div>
+  <div class="sidebar-footer">
+    Vlist &ndash; Otten Chauffeursdiensten<br>
+    <span class="sidebar-sub"></span><br>
+    +31 6 27 31 32 03 / +31 6 15 66 71 65
+  </div>
 </aside>
 
 <main class="page-inner">
@@ -71,14 +77,20 @@
       <a class="btn btn-outline" href="contact.html?dienst=BOB+service" data-t="ds-cta">Aanvragen</a>
     </div>
     <div class="dienst-card">
-      <div class="dienst-title" data-t="d3-title">Auto naar het buitenland</div>
-      <p data-t="d3-text"></p>
-      <a class="btn btn-outline" href="contact.html?dienst=Auto+naar+het+buitenland" data-t="ds-cta">Aanvragen</a>
-    </div>
-    <div class="dienst-card">
       <div class="dienst-title" data-t="d4-title">Luchthaven transfer</div>
       <p data-t="d4-text"></p>
       <a class="btn btn-outline" href="contact.html?dienst=Luchthaven+transfer" data-t="ds-cta">Aanvragen</a>
+    </div>
+    <div class="dienst-card card-featured">
+      <span class="badge-new" data-t="new">Nieuw!</span>
+      <div class="dienst-title" data-t="d6-title">Trailerservice</div>
+      <p data-t="d6-text"></p>
+      <a class="btn btn-primary" href="contact.html?dienst=Trailerservice" data-t="ds-cta">Aanvragen</a>
+    </div>
+    <div class="dienst-card">
+      <div class="dienst-title" data-t="d3-title">Auto naar het buitenland</div>
+      <p data-t="d3-text"></p>
+      <a class="btn btn-outline" href="contact.html?dienst=Auto+naar+het+buitenland" data-t="ds-cta">Aanvragen</a>
     </div>
     <div class="dienst-card">
       <div class="dienst-title" data-t="d5-title">Lange afstand</div>
@@ -86,22 +98,23 @@
       <a class="btn btn-outline" href="contact.html?dienst=Lange+afstand" data-t="ds-cta">Aanvragen</a>
     </div>
     <div class="dienst-card">
-      <div class="dienst-title" data-t="d7-title">Was service</div>
+      <div class="dienst-title" data-t="d7-title">Wasservice</div>
       <p data-t="d7-text"></p>
-      <a class="btn btn-outline" href="contact.html?dienst=Was+service" data-t="ds-cta">Aanvragen</a>
-    </div>
-    <!-- Trailerservice — nu beschikbaar -->
-    <div class="dienst-card">
-      <div class="dienst-title" data-t="d6-title">Trailerservice</div>
-      <p data-t="d6-text"></p>
-      <a class="btn btn-outline" href="contact.html?dienst=Trailerservice" data-t="ds-cta">Aanvragen</a>
+      <a class="btn btn-outline" href="contact.html?dienst=Wasservice" data-t="ds-cta">Aanvragen</a>
     </div>
   </div>
 </main>
 
-<footer class="site-footer">&copy; 2026 Vlist &ndash; Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;<a href="voorwaarden.html#av" data-t="ft-av">Algemene Voorwaarden</a></footer>
+<footer class="site-footer">
+  &copy; 2026 Vlist &ndash; Otten Chauffeursdiensten &nbsp;&middot;&nbsp; KvK: 99913925 &nbsp;|&nbsp;
+  <a href="voorwaarden.html#av" data-t="ft-av">Algemene Voorwaarden</a>
+</footer>
+
 <div class="cookie-bar" id="cookieBar" role="dialog" aria-label="Cookie melding">
-  <p class="cookie-text"><span data-t="ck-txt"></span><a href="voorwaarden.html" data-t="ck-link"></a>.</p>
+  <p class="cookie-text">
+    <span data-t="ck-txt"></span>
+    <a href="voorwaarden.html" data-t="ck-link"></a>.
+  </p>
   <div class="cookie-buttons">
     <button class="cookie-btn cookie-decline" onclick="declineCookies()" data-t="ck-dec"></button>
     <button class="cookie-btn cookie-accept" onclick="acceptCookies()" data-t="ck-acc"></button>
