@@ -2,10 +2,10 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:         #716143;   /* hoofdkleur (lichter) */
-  --bg-dk:      #5e5036;   /* kaarten / secties */
-  --bg-nav:     #443822;   /* navigatie, sidebar, footer */
-  --ink:        #2f2616;   /* donkere tekst op lichte knoppen */
+  --bg:         #47382a;   /* hoofdkleur */
+  --bg-dk:      #3b2e22;   /* kaarten / secties */
+  --bg-nav:     #2b2119;   /* navigatie, sidebar, footer */
+  --ink:        #2a1f14;   /* donkere tekst op lichte knoppen */
   --gold:       #f1e2c8;
   --gold-dim:   #e2d5be;
   --gold-muted: #dccfb6;
